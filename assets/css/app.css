@@ -22,18 +22,19 @@
   We ship with two themes, a light one inspired on Phoenix colors and a dark one inspired
   on Elixir colors. Build your own at: https://daisyui.com/theme-generator/ */
 
+
 @plugin "../vendor/daisyui-theme" {
   name: "luxury";
   default: true;
-  prefersdark: true;
+  prefersdark: false;
   color-scheme: "dark";
-  --color-base-100: oklch(26% 0.007 34.298);
+  --color-base-100: oklch(14% 0 0);
   --color-base-200: oklch(20% 0 0);
-  --color-base-300: oklch(14% 0 0);
+  --color-base-300: oklch(26% 0 0);
   --color-base-content: oklch(75.687% 0.123 76.89);
   --color-primary: #FAF3AA;
   --color-primary-content: oklch(20% 0 0);
-  --color-secondary: #9C7945;
+  --color-secondary: oklch(75.687% 0.123 76.89);
   --color-secondary-content: oklch(20% 0 0);
   --color-accent: oklch(36.674% 0.051 338.825);
   --color-accent-content: oklch(87.334% 0.01 338.825);
@@ -48,14 +49,15 @@
   --color-error: oklch(71.753% 0.176 22.568);
   --color-error-content: oklch(14.35% 0.035 22.568);
   --radius-selector: 0.25rem;
-  --radius-field: 0.25rem;
+  --radius-field: 0.5rem;
   --radius-box: 0.5rem;
-  --size-selector: 0.3125rem;
+  --size-selector: 0.25rem;
   --size-field: 0.25rem;
   --border: 1px;
   --depth: 1;
-  --noise: 1;
+  --noise: 0;
 }
+
 
 
 /*
@@ -95,6 +97,8 @@
   --noise: 0;
 }
 */
+
+/*
 @plugin "../vendor/daisyui-theme" {
   name: "light";
   default: true;
@@ -129,7 +133,7 @@
   --depth: 1;
   --noise: 0;
 }
-
+*/
 /* Add variants based on LiveView classes */
 @custom-variant phx-click-loading (.phx-click-loading&, .phx-click-loading &);
 @custom-variant phx-submit-loading (.phx-submit-loading&, .phx-submit-loading &);
