@@ -211,7 +211,7 @@
   <div class="mx-auto h-1 w-64 bg-gradient-to-tr from-primary to-secondary rounded-full"></div>
 </div>
 
-<section id="case-studies" class="min-h-screen bg-base-100 p-32">
+<section id="case-studies" class="min-h-screen bg-base-100 p-32 ">
   <div class="container mx-auto">
     <div class="text-center flex flex-col gap-4 text-2xl mb-8">
       <h2 class="inline mx-auto text-5xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
@@ -220,7 +220,7 @@
       <p>Real-world solutions that deliver measurable results.</p>
     </div>
 
-    <div class="card lg:card-side bg-base-200 shadow-sm">
+    <div class="card lg:card-side bg-base-200 shadow-xl shadow-primary/5">
       <figure class="">
         <img
           src="/images/backgrounds/construction-background.jpg"
@@ -319,7 +319,10 @@
   <div class="mx-auto h-1 w-64 bg-gradient-to-tr from-primary to-secondary rounded-full"></div>
 </div>
 
-<section id="blog-section" class="min-h-screen bg-base-100 p-16">
+<section
+  id="blog-section"
+  class="min-h-screen bg-base-100 p-16 bg-radial from-primary/20 via-base-100 to-base-100 "
+>
   <div class="flex flex-row justify-between items-end mb-8">
     <div class="text-center flex flex-col items-start text-right gap-4 text-2xl">
       <h2 class="inline py-1 text-5xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
@@ -329,9 +332,7 @@
     </div>
 
     <.link navigate="/#blogs" class="btn btn-primary btn-xl btn-ghost">
-    View All
-    <.icon name="hero-arrow-right" class="size-5" />
-    
+      View All <.icon name="hero-arrow-right" class="size-5" />
     </.link>
   </div>
 
@@ -360,6 +361,55 @@
       date="Dec 23, 3036"
       subtitle="A card component has a figure, a body part, and inside body there are title and actions parts. A card component has a figure, a body part, and inside body there are title and actions parts. A card component has a figure, a body part, and inside body there are title and actions parts."
     />
+  </div>
+</section>
+
+<div class="bg-base-100">
+  <div class="mx-auto h-1 w-64 bg-gradient-to-tr from-primary to-secondary rounded-full"></div>
+</div>
+
+<section id="message-section" class="min-h-screen bg-base-100 p-16">
+  <div class="container mx-auto ">
+    <h3 class=" inline text-5xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
+      Contact Today
+    </h3>
+    <.form for={%{}} as={:contact} phx-submit="submit" class="space-y-4">
+      <div class="flex flex-col md:flex-row gap-4 w-full">
+        <div class="flex-1">
+          <label class="font-bold">Name</label>
+          <input
+            type="text"
+            name="contact[name]"
+            required
+            class="input input-bordered w-full"
+          />
+        </div>
+
+        <div class="flex-1">
+          <label class="font-bold">Email</label>
+          <label class="input validator w-full">
+            <.icon name="hero-envelope" class="size-5" />
+            <input type="email" placeholder="mail@site.com" required />
+          </label>
+        </div>
+      </div>
+
+      <div>
+        <label class="block text-sm font-medium mb-1">Message</label>
+        <textarea
+          name="contact[message]"
+          rows="8"
+          required
+          class="textarea textarea-bordered w-full resize-none"
+        ></textarea>
+      </div>
+
+      <div class="">
+        <.button type="submit" class="btn btn-primary md:btn-xl">
+          Send Message
+        </.button>
+      </div>
+    </.form>
   </div>
 </section>
 
