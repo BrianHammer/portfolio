@@ -95,6 +95,7 @@ defmodule PortfolioPageWeb do
       # Custom components
       ##########################
       import PortfolioPageWeb.CustomComponents
+      import PortfolioPageWeb.LayoutComponents
 
 
       # Routes generation with the ~p sigil
