@@ -6,21 +6,19 @@ defmodule PortfolioPageWeb.LayoutComponents do
   use Phoenix.Component
   import PortfolioPageWeb.CoreComponents, only: [icon: 1]
 
+  @contact_link %{label: "contact", url: "/#contact-us"}
+
   @nav_links [
     %{label: "Home", url: "/"},
     %{label: "Services", url: "/services"},
     %{label: "Blog", url: "/blogs"}
   ]
 
-  defp navbar_items(assigns) do
-    ~H"""
-    """
-  end
-
   @doc """
   Navbar for the pages
   """
-  attr :nav_links, :map, default: @nav_links
+  attr :nav_links, :list, default: @nav_links
+  attr :contact_link, :map, default: @contact_link
 
   def navbar(assigns) do
     ~H"""
@@ -66,20 +64,53 @@ defmodule PortfolioPageWeb.LayoutComponents do
       </div>
       <div class="navbar-center hidden lg:flex">
         <ul class="menu menu-lg menu-horizontal px-1">
-
           <li :for={nav_info <- @nav_links}>
-              <.link navigate={nav_info.url}>
-                {nav_info.label}
-              </.link>
-            </li>
+            <.link navigate={nav_info.url}>
+              {nav_info.label}
+            </.link>
+          </li>
         </ul>
       </div>
       <div class="navbar-end">
-        <.link navigate="/#contact" class="btn btn-primary flex flex-row gap-2">
-          <.icon name="hero-envelope" class="size-5" /> Contact
+        <.link navigate={@contact_link.url} class="btn btn-primary flex flex-row gap-2">
+          <.icon name="hero-envelope" class="size-5" /> {@contact_link.label}
         </.link>
       </div>
     </navbar>
+    """
+  end
+
+  attr :company_links, :list, default: @nav_links
+  attr :contact_link, :map, default: @contact_link
+
+  def footer(assigns) do
+    ~H"""
+    <footer class="footer sm:footer-horizontal bg-base-200 text-base-content p-10">
+      <aside class="hidden sm:block">
+        <img src="images/logo-white.svg" class="size-20 mx-auto" />
+        <p>
+          LiveLogic Development Studio.
+        </p>
+      </aside>
+      <nav>
+        <h6 class="footer-title">Services</h6>
+        <a class="link link-hover">Product Development</a>
+        <a class="link link-hover">Full Stack Development</a>
+        <a class="link link-hover">Design</a>
+        <a class="link link-hover">Phoenix LiveView</a>
+      </nav>
+      <nav>
+        <h6 class="footer-title">Company</h6>
+        <.link :for={nav_info <- @company_links} class="link link-hover" navigate={nav_info.url}>
+          {nav_info.label}
+        </.link>
+      </nav>
+      <nav>
+        <h6 class="footer-title">Contact</h6>
+        <.link navigate={@contact_link.url} class="link link-hover">Contact Form</.link>
+        <.link navigate={@contact_link.url} class="link link-hover">brianhammer4work@gmail.com</.link>
+      </nav>
+    </footer>
     """
   end
 
