@@ -59,9 +59,9 @@
     </ul>
   </div>
   <div class="navbar-end">
-    <a class="btn btn-primary flex flex-row gap-2">
+    <.link navigate="/#contact" class="btn btn-primary flex flex-row gap-2">
       <.icon name="hero-envelope" class="size-5" /> Contact
-    </a>
+    </.link>
   </div>
 </div>
 
@@ -211,8 +211,7 @@
   <div class="mx-auto h-1 w-64 bg-gradient-to-tr from-primary to-secondary rounded-full"></div>
 </div>
 
-
-<section id="" class="min-h-screen bg-base-100 p-16">
+<section id="case-studies" class="min-h-screen bg-base-100 p-32">
   <div class="container mx-auto">
     <div class="text-center flex flex-col gap-4 text-2xl mb-8">
       <h2 class="inline mx-auto text-5xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
@@ -313,6 +312,54 @@
         </div>
       </div>
     </div>
+  </div>
+</section>
+
+<div class="bg-base-100">
+  <div class="mx-auto h-1 w-64 bg-gradient-to-tr from-primary to-secondary rounded-full"></div>
+</div>
+
+<section id="blog-section" class="min-h-screen bg-base-100 p-16">
+  <div class="flex flex-row justify-between items-end mb-8">
+    <div class="text-center flex flex-col items-start text-right gap-4 text-2xl">
+      <h2 class="inline py-1 text-5xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
+        Blog Posts
+      </h2>
+      <p>Posts about stuff</p>
+    </div>
+
+    <.link navigate="/#blogs" class="btn btn-primary btn-xl btn-ghost">
+    View All
+    <.icon name="hero-arrow-right" class="size-5" />
+    
+    </.link>
+  </div>
+
+  <div class="grid grid-cols-4 gap-4">
+    <.blog_link_card
+      title="Navigation link"
+      category="Architecture"
+      date="Dec 23, 3036"
+      subtitle="A card component has a figure, a body part, and inside body there are title and actions parts. A card component has a figure, a body part, and inside body there are title and actions parts. A card component has a figure, a body part, and inside body there are title and actions parts."
+    />
+    <.blog_link_card
+      title="Navigation link"
+      category="Architecture"
+      date="Dec 23, 3036"
+      subtitle="A card component has a figure, a body part, and inside body there are title and actions parts. A card component has a figure, a body part, and inside body there are title and actions parts. A card component has a figure, a body part, and inside body there are title and actions parts."
+    />
+    <.blog_link_card
+      title="Navigation link"
+      category="Architecture"
+      date="Dec 23, 3036"
+      subtitle="A card component has a figure, a body part, and inside body there are title and actions parts. A card component has a figure, a body part, and inside body there are title and actions parts. A card component has a figure, a body part, and inside body there are title and actions parts."
+    />
+    <.blog_link_card
+      title="Navigation link"
+      category="Architecture"
+      date="Dec 23, 3036"
+      subtitle="A card component has a figure, a body part, and inside body there are title and actions parts. A card component has a figure, a body part, and inside body there are title and actions parts. A card component has a figure, a body part, and inside body there are title and actions parts."
+    />
   </div>
 </section>
 

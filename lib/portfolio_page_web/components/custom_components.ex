@@ -11,9 +11,7 @@ defmodule PortfolioPageWeb.CustomComponents do
 
   def title(assigns) do
     ~H"""
-    <div>
-
-    </div>
+    <div></div>
     """
   end
 
@@ -67,6 +65,53 @@ defmodule PortfolioPageWeb.CustomComponents do
         </div>
       </div>
     </div>
+    """
+  end
+
+  attr :image_url, :string,
+    default: "https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp"
+
+  attr :url, :string, default: "#"
+  attr :category, :string, default: nil
+  attr :date, :map, default: nil
+  attr :title, :string, required: true
+  attr :subtitle, :string, required: true
+
+  def blog_link_card(assigns) do
+    ~H"""
+    <.link navigate={@url}>
+      <div class="group card bg-base-200 shadow-sm border-2 border-primary/20 hover:border-primary/70 transition-all duration-100">
+        <figure>
+          <img
+            src={@image_url}
+            alt={"Article image for #{@title}"}
+            class="group-hover:scale-105 transition-all duration-200  group-hover:opacity-80"
+          />
+        </figure>
+        <div class="card-body group-hover:text-secondary duration-200">
+          <div class="flex flex-row gap-2 mb-2 overflow-y-auto">
+            <div :if={@category} class="badge badge-secondary">Architecture</div>
+            <div :if={@date} class="flex gap-1 text-sm">
+              <.icon name="hero-calendar" class="size-5" />
+              <span>{@date}</span>
+            </div>
+          </div>
+          <h2 class="card-title">{@title}</h2>
+          <p class="line-clamp-3">
+            {@subtitle}
+          </p>
+          <div class="card-actions">
+            <div class="flex flex-row gap-2 mt-2 items-center group-hover:font-bold">
+              <div>Read More</div>
+              <.icon
+                name="hero-arrow-right"
+                class="size-5 transition-transform duration-200 group-hover:translate-x-1"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </.link>
     """
   end
 end
