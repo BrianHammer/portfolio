@@ -91,6 +91,12 @@ defmodule PortfolioPageWeb do
       alias Phoenix.LiveView.JS
       alias PortfolioPageWeb.Layouts
 
+      ##########################
+      # Custom components
+      ##########################
+      import PortfolioPageWeb.CustomComponents
+
+
       # Routes generation with the ~p sigil
       unquote(verified_routes())
     end
