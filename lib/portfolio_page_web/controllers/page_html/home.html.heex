@@ -4,7 +4,7 @@
 
 <section
   id="hero-section"
-  class="relative h-[80vh] w-full"
+  class="relative min-h-[90vh] w-full"
 >
   <!-- Background layer -->
   <div class="absolute inset-0">
@@ -17,24 +17,29 @@
   </div>
   
 <!-- Content goes here -->
-  <div class="w-full h-full flex items-center justify-center relative z-10">
+  <div class="container mx-auto h-full flex items-center justify-center relative z-10">
     <div class="card max-w-150 bg-base-200/0 shadow-sm">
       <div class="card-body">
         <h2 class="card-title text-5xl bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent pb-8">
           From Vision <br /> to Reliable Real-time Software
         </h2>
         <p class="pb-4 text-lg text-neutral-content">
-          A card component has a figure, a body part, and inside body there are title and actions parts
+          Complex real-time software for founders that value foundations built on stone.
+          Turn ideas into production-ready real-time software that stay
+          reliable under pressure and scale effortlessly as your business grows.
         </p>
         <div class="card-actions justify-start">
-          <button class="btn btn-primary">Buy Now</button>
+          <.link navigate="/#contact-us" class="btn btn-primary">Contact</.link>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<section id="problem-section" class="bg-gradient-to-t from-base-200 via-error/10 to-base-100 py-16">
+<section
+  id="problem-section"
+  class="bg-gradient-to-t from-base-200 via-error/10 to-base-100 py-16"
+>
   <div class="container mx-auto flex flex-col items-center gap-8">
     <div class="badge badge-error badge-soft hidden sm:block badge-lg">
       <.icon name="hero-exclamation-triangle" class="size-4" /> The costs of poor execution
@@ -93,7 +98,6 @@
     </div>
   </div>
 </section>
-
 
 <section
   id="solutions-section"
