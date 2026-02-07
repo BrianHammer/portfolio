@@ -89,7 +89,7 @@ defmodule PortfolioPageWeb.CustomComponents do
           />
         </figure>
         <div class="card-body group-hover:text-secondary duration-200">
-          <div class="flex flex-row gap-2 mb-2 overflow-y-auto">
+          <div class="flex flex-row gap-2 mb-2 flex-wrap">
             <div :if={@category} class="badge badge-secondary">Architecture</div>
             <div :if={@date} class="flex gap-1 text-sm">
               <.icon name="hero-calendar" class="size-5" />

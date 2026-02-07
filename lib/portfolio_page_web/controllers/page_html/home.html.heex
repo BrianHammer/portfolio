@@ -1,6 +1,5 @@
 <Layouts.flash_group flash={@flash} />
 
-
 <.navbar />
 
 <section
@@ -35,7 +34,7 @@
   </div>
 </section>
 
-<section id="problem-section" class="bg-gradient-to-t from-base-200 via-error/10 to-base-100 p-24">
+<section id="problem-section" class="bg-gradient-to-t from-base-200 via-error/10 to-base-100 py-16">
   <div class="container mx-auto flex flex-col items-center gap-8">
     <div class="badge badge-error badge-soft hidden sm:block badge-lg">
       <.icon name="hero-exclamation-triangle" class="size-4" /> The costs of poor execution
@@ -94,9 +93,11 @@
     </div>
   </div>
 </section>
+
+
 <section
   id="solutions-section"
-  class="bg-gradient-to-t from-base-100 via-secondary/20 to-base-200 to-90% p-36 min-h-screen"
+  class="bg-gradient-to-t from-base-100 via-secondary/20 to-base-200 to-90% py-16 min-h-screen"
 >
   <div class="container mx-auto">
     <header class="text-center">
@@ -149,7 +150,7 @@
   <div class="mx-auto h-1 w-64 bg-gradient-to-tr from-primary to-secondary rounded-full"></div>
 </div>
 
-<section id="case-studies" class="min-h-screen bg-base-100 p-32 ">
+<section id="case-studies" class="min-h-screen bg-base-100 py-16 ">
   <div class="container mx-auto">
     <div class="text-center flex flex-col gap-4 text-2xl mb-8">
       <h2 class="inline mx-auto text-5xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
@@ -218,8 +219,8 @@
           </ul>
         </div>
 
-        <div class="mx-12 my-8 card card-xl bg-base-100 bg-gradient-to-tl to-primary/10 via-secondary/7 to-base-100 shadow-xl">
-          <div class="card-body flex flex-col gap-16 md:flex-row justify-between ">
+        <div class="sm:mx-12 my-8 card card-xl bg-base-100 bg-gradient-to-tl to-primary/10 via-secondary/7 to-base-100 shadow-xl">
+          <div class="card-body flex flex-col gap-16 sm:flex-row justify-between ">
             <div class="flex-1 flex flex-col gap- flex items-center justify-center">
               <.icon name="hero-users" class="size-16 text-primary" />
               <h5 class="font-bold text-3xl text-primary bg-gradient-to-tr from-primary to-secondary bg-clip-text text-transparent">
@@ -259,46 +260,48 @@
 
 <section
   id="blog-section"
-  class="min-h-screen bg-base-100 p-16 bg-radial from-primary/20 via-base-100 to-base-100 "
+  class="min-h-screen bg-base-100 py-16 bg-radial from-primary/20 via-base-100 to-base-100 "
 >
-  <div class="flex flex-row justify-between items-end mb-8">
-    <div class="text-center flex flex-col items-start text-right gap-4 text-2xl">
-      <h2 class="inline py-1 text-5xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
-        Blog Posts
-      </h2>
-      <p>Posts about stuff</p>
+  <div class="container mx-auto">
+    <div class="flex flex-row justify-between items-end mb-8">
+      <div class="text-center flex flex-col items-start text-right gap-4 text-2xl">
+        <h2 class="inline py-1 text-5xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
+          Blog Posts
+        </h2>
+        <p>Posts about stuff</p>
+      </div>
+
+      <.link navigate="/#blogs" class="btn btn-primary btn-xl btn-ghost">
+        View All <.icon name="hero-arrow-right" class="size-5" />
+      </.link>
     </div>
 
-    <.link navigate="/#blogs" class="btn btn-primary btn-xl btn-ghost">
-      View All <.icon name="hero-arrow-right" class="size-5" />
-    </.link>
-  </div>
-
-  <div class="grid grid-cols-4 gap-4">
-    <.blog_link_card
-      title="Navigation link"
-      category="Architecture"
-      date="Dec 23, 3036"
-      subtitle="A card component has a figure, a body part, and inside body there are title and actions parts. A card component has a figure, a body part, and inside body there are title and actions parts. A card component has a figure, a body part, and inside body there are title and actions parts."
-    />
-    <.blog_link_card
-      title="Navigation link"
-      category="Architecture"
-      date="Dec 23, 3036"
-      subtitle="A card component has a figure, a body part, and inside body there are title and actions parts. A card component has a figure, a body part, and inside body there are title and actions parts. A card component has a figure, a body part, and inside body there are title and actions parts."
-    />
-    <.blog_link_card
-      title="Navigation link"
-      category="Architecture"
-      date="Dec 23, 3036"
-      subtitle="A card component has a figure, a body part, and inside body there are title and actions parts. A card component has a figure, a body part, and inside body there are title and actions parts. A card component has a figure, a body part, and inside body there are title and actions parts."
-    />
-    <.blog_link_card
-      title="Navigation link"
-      category="Architecture"
-      date="Dec 23, 3036"
-      subtitle="A card component has a figure, a body part, and inside body there are title and actions parts. A card component has a figure, a body part, and inside body there are title and actions parts. A card component has a figure, a body part, and inside body there are title and actions parts."
-    />
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+      <.blog_link_card
+        title="Navigation link"
+        category="Architecture"
+        date="Dec 23, 3036"
+        subtitle="A card component has a figure, a body part, and inside body there are title and actions parts. A card component has a figure, a body part, and inside body there are title and actions parts. A card component has a figure, a body part, and inside body there are title and actions parts."
+      />
+      <.blog_link_card
+        title="Navigation link"
+        category="Architecture"
+        date="Dec 23, 3036"
+        subtitle="A card component has a figure, a body part, and inside body there are title and actions parts. A card component has a figure, a body part, and inside body there are title and actions parts. A card component has a figure, a body part, and inside body there are title and actions parts."
+      />
+      <.blog_link_card
+        title="Navigation link"
+        category="Architecture"
+        date="Dec 23, 3036"
+        subtitle="A card component has a figure, a body part, and inside body there are title and actions parts. A card component has a figure, a body part, and inside body there are title and actions parts. A card component has a figure, a body part, and inside body there are title and actions parts."
+      />
+      <.blog_link_card
+        title="Navigation link"
+        category="Architecture"
+        date="Dec 23, 3036"
+        subtitle="A card component has a figure, a body part, and inside body there are title and actions parts. A card component has a figure, a body part, and inside body there are title and actions parts. A card component has a figure, a body part, and inside body there are title and actions parts."
+      />
+    </div>
   </div>
 </section>
 
@@ -306,7 +309,7 @@
   <div class="mx-auto h-1 w-64 bg-gradient-to-tr from-primary to-secondary rounded-full"></div>
 </div>
 
-<section id="message-section" class="min-h-screen bg-base-100 p-16">
+<section id="message-section" class="bg-base-100 py-16">
   <div class="container mx-auto ">
     <h3 class=" inline text-5xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
       Contact Today
@@ -350,13 +353,13 @@
     </.form>
   </div>
 </section>
-
+<!--
 <section
   hidden
   id="unknown-section"
   class="relative h-screen w-full"
->
-  <!-- Background layer -->
+>-->
+  <!-- Background layer --><!--
   <div class="absolute inset-0">
     <img
       src={~p"/images/backgrounds/golden-network-background-2.jpg"}
@@ -365,9 +368,9 @@
     <div class="absolute inset-0 bg-gradient-to-b from-base-100 via-base-100/0 to-base-100/100">
     </div>
   </div>
-  
-<!-- Content goes here -->
+  -->
+<!-- Content goes here --><!--
   <div class="container mx-auto flex flex-col items-center gap-8 "></div>
 </section>
-
+-->
 <.footer />
