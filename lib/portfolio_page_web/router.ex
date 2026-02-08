@@ -19,7 +19,7 @@ defmodule PortfolioPageWeb.Router do
 
     get "/", PageController, :home
     live "/blogs", BlogLive.Index, :index
-    live "/blogs/:blog_id", BlogLive.Index, :show
+    live "/blogs/:post_id", BlogLive.Index, :show
   end
 
   # Other scopes may use custom stacks.

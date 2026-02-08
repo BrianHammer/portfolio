@@ -69,6 +69,21 @@ defmodule PortfolioPageWeb.CustomComponents do
     """
   end
 
+  attr :post, :map, required: true
+
+  def blog_post_link(assigns) do
+    ~H"""
+    <.blog_link_card
+      image_url={@post.image_url}
+      category={"cool"}
+      url={"/blogs/#{@post.id}"}
+      date={@post.date}
+      title={@post.title}
+      subtitle={@post.description}
+    />
+    """
+  end
+
   attr :image_url, :string,
     default: "https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp"
 
@@ -94,7 +109,7 @@ defmodule PortfolioPageWeb.CustomComponents do
             <div :if={@category} class="badge badge-secondary">Architecture</div>
             <div :if={@date} class="flex gap-1 text-sm">
               <.icon name="hero-calendar" class="size-5" />
-              <span>{@date |> Formatter.format_date() }</span>
+              <span>{@date |> Formatter.format_date()}</span>
             </div>
           </div>
           <h2 class="card-title">{@title}</h2>

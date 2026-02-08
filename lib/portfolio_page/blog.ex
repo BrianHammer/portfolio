@@ -1,19 +1,19 @@
-defmodule MyApp.Blog do
-  alias MyApp.Blog.Post
+defmodule PortfolioPage.Blog do
+  alias PortfolioPage.Blog.Post
 
-  @posts_dir "priv/posts/"
+  @posts_dir "priv/static/posts/"
 
   @default_number_of_posts 30
 
   use NimblePublisher,
     build: Post,
-    from: Application.app_dir(:my_app, "#{@posts_dir}**/*.md"),
+    from: Application.app_dir(:portfolio_page, "#{@posts_dir}**/*.md"),
     as: :posts,
     highlighters: [:makeup_elixir, :makeup_erlang]
 
   # The @posts variable is first defined by NimblePublisher.
   # Let's further modify it by sorting all posts by descending date.
-  @posts @posts |> sort_posts_by_date()
+  @posts @posts |> Enum.sort_by(fn post -> post.date end, {:desc, Date})
 
   # Let's also get all tags
   @tags @posts |> Enum.flat_map(& &1.tags) |> Enum.uniq() |> Enum.sort()
@@ -60,12 +60,13 @@ defmodule MyApp.Blog do
     today = Date.utc_today()
 
     all_posts()
-    |> remove_hidden_posts()
+    |> filter_hidden_posts()
+    |> IO.inspect()
     |> remove_posts_before_date(today)
   end
 
   defp filter_hidden_posts(posts) do
-    psots |> Enum.filter(& &1.hidden?)
+    posts |> Enum.filter(& not &1.hidden?)
   end
 
   defp remove_posts_before_date(posts, before_date) do
@@ -119,7 +120,6 @@ defmodule MyApp.Blog do
       raise NotFoundError, "post with id=#{id} not found"
   end
 
-
   @doc """
   Grabs posts by their tag
   """
@@ -129,8 +129,8 @@ defmodule MyApp.Blog do
   end
 
   def get_posts_by_tag!(tag) do
-    get_published_posts()
-    |> case Enum.filter(&(tag in &1.tags)) do
+    case get_published_posts()
+         |> Enum.filter(&(tag in &1.tags)) do
       [] -> raise NotFoundError, "posts with tag=#{tag} not found"
       posts -> posts
     end

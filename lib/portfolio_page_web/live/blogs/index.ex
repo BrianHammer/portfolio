@@ -1,19 +1,28 @@
 defmodule PortfolioPageWeb.BlogLive.Index do
   use PortfolioPageWeb, :live_view
 
+  alias PortfolioPage.Blog
+
   def render(assigns) do
     ~H"""
     <Layouts.app flash={@flash}>
       <div class="container mx-auto my-16">
-        <h1>Listing Our Blogs</h1>
+        <h1>Listing Our Posts</h1>
 
         <div class="flex flex-col sm:flex-row gap-8">
           <section class="flex-1 flex flex-col gap-4">
             <!-- Search Bar -->
             <.blog_sidebar tag_event="filter_tags" search_event="search" />
           </section>
-          <section class="flex-2">
-            <.blog_list_section blogs={@streams.blogs} :if={@live_action == :index} />
+          <section class="flex-2" :if={@live_action == :index}>
+            <ul id="blog-list-section" class="flex-2 grid grid-cols-1 gap-4 lg:grid-cols-2 lg:grid-cols-2">
+              <li  :for={{dom_id, post} <- @streams.posts} id={dom_id}>
+                <.blog_post_link post={post} />
+              </li>
+            </ul>
+          </section>
+
+          <section :if={@live_action == :show} class="flex-2">
             <.blog_section :if={@live_action == :show} />
           </section>
         </div>
@@ -22,33 +31,52 @@ defmodule PortfolioPageWeb.BlogLive.Index do
     """
   end
 
-  attr :blogs, :list, default: []
+  attr :posts, :list, default: []
 
   def blog_list_section(assigns) do
     ~H"""
     <ul class="flex-2 grid grid-cols-1 gap-4 lg:grid-cols-2 lg:grid-cols-2">
-      <li :for={blog <- @blogs}>
-        <.blog_link_card
-          title="Navigation link"
-          category="Architecture"
-          date={Date.new!(2026, 10, 23)}
-          subtitle="A card component has a figure, a body part, and inside body there are title and actions parts. A card component has a figure, a body part, and inside body there are title and actions parts. A card component has a figure, a body part, and inside body there are title and actions parts."
-        />
+      <li :for={{_id, post} <- @posts}>
+        <.blog_post_link post={post} />
       </li>
     </ul>
     """
   end
 
-  attr :blog_id, :string, required: true
+  attr :post_id, :string, required: true
 
   def blog_section(assigns) do
     ~H"""
-    Blog section
+    <article class="flex-2 h-fit card bg-base-100 rounded-lg shadow-xl">
+      <figure>
+        <img
+          src={@post.image_url}
+          alt="Shoes"
+        />
+      </figure>
+
+      <div class="card-body flex flex-col space-y-4">
+        <h2 class="text-3xl font-bold">{@post.title}</h2>
+        <ul class="flex flex-row gap-2 flex-wrap">
+          <li :for={tag <- @post.tags} class="badge badge-primary badge-lg badge-soft">
+            {tag}
+          </li>
+        </ul>
+
+        <p class="text-md text-base-content/80 ">{@post.description}</p>
+        <div class="flex flex-row gap-4">
+          <div>{@post.author}</div>
+          <div>{@post.read_time} min read</div>
+          <div>{Timex.format!(@post.date, "{Mshort} {D}, {YYYY}")}</div>
+        </div>
+        <div class="markdown-blog">{raw(@post.body)}</div>
+      </div>
+    </article>
     """
   end
 
   def mount(_params, _session, socket) do
-    {:ok, socket |> assign(:blog_id, nil) |> stream(:blogs, [])}
+    {:ok, socket |> assign(:post_id, nil) |> stream(:posts, [])}
   end
 
   def handle_event("filter_tags", %{"tag_value" => value}, socket) do
@@ -65,11 +93,11 @@ defmodule PortfolioPageWeb.BlogLive.Index do
 
   defp assign_action(socket, params) when socket.assigns.live_action == :index do
     socket
-    |> stream(:blogs, [])
+    |> stream(:posts, Blog.get_posts(params, 30))
   end
 
   defp assign_action(socket, params) when socket.assigns.live_action == :show do
     socket
-    |> assign(:blog_id, params.blog_id)
+    |> assign(:post_id, params.post_id)
   end
 end
