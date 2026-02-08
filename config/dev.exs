@@ -49,7 +49,8 @@ config :portfolio_page, PortfolioPageWeb.Endpoint,
     patterns: [
       ~r"priv/static/(?!uploads/).*(js|css|png|jpeg|jpg|gif|svg)$",
       ~r"priv/gettext/.*(po)$",
-      ~r"lib/portfolio_page_web/(?:controllers|live|components|router)/?.*\.(ex|heex)$"
+      ~r"lib/portfolio_page_web/(?:controllers|live|components|router)/?.*\.(ex|heex)$",
+      ~r"posts/*/.*(md)$"
     ]
   ]
 
