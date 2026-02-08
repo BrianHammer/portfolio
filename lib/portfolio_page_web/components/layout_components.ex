@@ -6,6 +6,8 @@ defmodule PortfolioPageWeb.LayoutComponents do
   use Phoenix.Component
   import PortfolioPageWeb.CoreComponents, only: [icon: 1]
 
+  alias PortfolioPageWeb.Utils.Formatter
+
   @contact_link %{label: "contact", url: "/#contact-us"}
 
   @nav_links [
@@ -119,17 +121,103 @@ defmodule PortfolioPageWeb.LayoutComponents do
 
   """
 
+  attr :tags, :list, default: []
+  attr :recent_posts, :map, default: []
+
+  attr :tag_event, :string, required: true
+  attr :search_event, :string, required: true
+
   def blog_sidebar(assigns) do
     ~H"""
-    <div class="flex flex-col gap-4">
-      <div class="card bg-base-200 shadow-lg">
-        <div class="text-lg font-bold mb-2">Search</div>
+    <sidebar class="flex flex-col gap-8">
 
-        <label class="input input-bordered flex items-center gap-2 bg-base-100">
-          <.icon name="hero-magnifying-glass" class="w-4 h-4 opacity-70" />
-          <input type="text" class="grow" placeholder="Search blog posts..." />
-        </label>
+    <!-- search section -->
+      <div class="card bg-base-200 shadow-lg">
+        <div class="card-body">
+          <div class="card-title">Search</div>
+          <form phx-change="search" class="w-full">
+            <label class="input input-bordered flex items-center gap-2 bg-base-100">
+              <.icon name="hero-magnifying-glass" class="size-4" />
+              <input name="value" type="text" class="grow" placeholder="Search blog posts..." />
+            </label>
+          </form>
+        </div>
       </div>
+
+    <!-- Tags Filter -->
+      <div class="card bg-base-200 shadow-lg">
+        <div class="card-body">
+          <div class="card-title flex flex-row justify-between">
+            <h3 class="">Tags</h3>
+            <a href="/blog/" class="btn btn-primary btn-sm btn-soft">All</a>
+          </div>
+          <ul class="flex flex-col gap-2">
+            <li :for={tag <- @tags} class="">
+              <span class="w-full px-2 block h-[2px] bg-base-300"></span>
+              <.link
+                patch={"/blogs?tag=#{tag}"}
+                class="block py-2 text-lg font-medium border-base-300"
+              >
+                {tag}
+              </.link>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+    <!-- Top Posts -->
+
+      <div class="bg-base-200 card shadow-lg">
+        <div class="card-body">
+          <h3 class="card-title">Latest Posts</h3>
+          <ul class="">
+            <li :for={post <- @recent_posts}>
+              <span class="w-full px-2 block h-[2px] bg-base-300"></span>
+              <a href={"/blog/#{post.id}"} class="block py-2 flex flex-row justify-between">
+                <span class="font-medium">
+                  {post.title}
+                </span>
+                <span class="text-sm font-thin text-base-content/60">
+                  {post.date |> Formatter.format_date()}
+                </span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+    <!-- advertisement card -->
+
+      <div class="bg-base-100 card shadow-lg bg-gradient-to-br from-primary/10 to-secondary/10 border-2 border-primary/20">
+        <div class="card-body">
+          <h3 class="card-title">Request Demo</h3>
+          <p>
+            Xprocura is a real-time construction procurement software that saves countless hours of procurement tracking.
+          </p>
+          <div class="w-full flex flex-row gap-2 mt-3">
+            <a
+              href="/#request-demo"
+              class="btn btn-primary flex-1 bg-gradient-to-br from-primary/10 to-secondary/10"
+            >
+              Request Now
+            </a>
+            <a href="/" class="btn btn-outline btn-secondary flex-1">
+              Learn More
+            </a>
+          </div>
+        </div>
+      </div>
+    </sidebar>
+    """
+  end
+
+  def grid_background(assigns) do
+    ~H"""
+    <div class="fixed inset-0 -z-20 bg-[url('/images/backgrounds/squares-background.png')] opacity-2 dark:invert">
+    </div>
+    <div class="fixed inset-0 -z-19 bg-[url('/images/backgrounds/mesh-background.jpg')] [background-size:110%] object-fill opacity-2">
+    </div>
+    <div class="to-base-100 via-base-100/40 fixed inset-0 top-0 -z-1 bg-linear-to-b from-transparent">
     </div>
     """
   end

@@ -1,7 +1,5 @@
-<Layouts.flash_group flash={@flash} />
 
-<.navbar />
-
+<Layouts.app flash={@flash} >
 <section
   id="hero-section"
   class="relative min-h-[90vh] w-full"
@@ -284,25 +282,25 @@
       <.blog_link_card
         title="Navigation link"
         category="Architecture"
-        date="Dec 23, 3036"
+        date={Date.new!(2026, 10, 23)}
         subtitle="A card component has a figure, a body part, and inside body there are title and actions parts. A card component has a figure, a body part, and inside body there are title and actions parts. A card component has a figure, a body part, and inside body there are title and actions parts."
       />
       <.blog_link_card
         title="Navigation link"
         category="Architecture"
-        date="Dec 23, 3036"
+        date={Date.new!(2026, 10, 23)}
         subtitle="A card component has a figure, a body part, and inside body there are title and actions parts. A card component has a figure, a body part, and inside body there are title and actions parts. A card component has a figure, a body part, and inside body there are title and actions parts."
       />
       <.blog_link_card
         title="Navigation link"
         category="Architecture"
-        date="Dec 23, 3036"
+        date={Date.new!(2026, 10, 23)}
         subtitle="A card component has a figure, a body part, and inside body there are title and actions parts. A card component has a figure, a body part, and inside body there are title and actions parts. A card component has a figure, a body part, and inside body there are title and actions parts."
       />
       <.blog_link_card
         title="Navigation link"
         category="Architecture"
-        date="Dec 23, 3036"
+        date={Date.utc_today()}
         subtitle="A card component has a figure, a body part, and inside body there are title and actions parts. A card component has a figure, a body part, and inside body there are title and actions parts. A card component has a figure, a body part, and inside body there are title and actions parts."
       />
     </div>
@@ -377,4 +375,4 @@
   <div class="container mx-auto flex flex-col items-center gap-8 "></div>
 </section>
 -->
-<.footer />
+</Layouts.app>

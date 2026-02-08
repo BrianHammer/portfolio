@@ -4,6 +4,7 @@ defmodule PortfolioPageWeb.CustomComponents do
 
   """
   use Phoenix.Component
+  alias PortfolioPage.Utils.Formatter
   import PortfolioPageWeb.CoreComponents, only: [icon: 1]
 
   attr :title, :string, default: ""
@@ -93,7 +94,7 @@ defmodule PortfolioPageWeb.CustomComponents do
             <div :if={@category} class="badge badge-secondary">Architecture</div>
             <div :if={@date} class="flex gap-1 text-sm">
               <.icon name="hero-calendar" class="size-5" />
-              <span>{@date}</span>
+              <span>{@date |> Formatter.format_date() }</span>
             </div>
           </div>
           <h2 class="card-title">{@title}</h2>
