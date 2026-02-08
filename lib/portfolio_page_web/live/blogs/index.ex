@@ -1,6 +1,7 @@
 defmodule PortfolioPageWeb.BlogLive.Index do
   use PortfolioPageWeb, :live_view
 
+  alias PortfolioPage.Utils.Formatter
   alias PortfolioPage.Blog
 
   def render(assigns) do
@@ -23,7 +24,7 @@ defmodule PortfolioPageWeb.BlogLive.Index do
           </section>
 
           <section :if={@live_action == :show} class="flex-2">
-            <.blog_section :if={@live_action == :show} />
+            <.blog_section post={@post} />
           </section>
         </div>
       </div>
@@ -43,7 +44,7 @@ defmodule PortfolioPageWeb.BlogLive.Index do
     """
   end
 
-  attr :post_id, :string, required: true
+  attr :post, :map, required: true
 
   def blog_section(assigns) do
     ~H"""
@@ -67,7 +68,7 @@ defmodule PortfolioPageWeb.BlogLive.Index do
         <div class="flex flex-row gap-4">
           <div>{@post.author}</div>
           <div>{@post.read_time} min read</div>
-          <div>{Timex.format!(@post.date, "{Mshort} {D}, {YYYY}")}</div>
+          <div>{Formatter.format_date(@post.date)}</div>
         </div>
         <div class="markdown-blog">{raw(@post.body)}</div>
       </div>
@@ -98,6 +99,6 @@ defmodule PortfolioPageWeb.BlogLive.Index do
 
   defp assign_action(socket, params) when socket.assigns.live_action == :show do
     socket
-    |> assign(:post_id, params.post_id)
+    |> assign(:post, Blog.get_post_by_id!(params["post_id"]))
   end
 end
