@@ -7,7 +7,7 @@ defmodule PortfolioPage.Blog do
 
   use NimblePublisher,
     build: Post,
-    from: Application.app_dir(:portfolio_page, "#{@posts_dir}**/*.md"),
+    from: Application.app_dir(:portfolio_page, "#{@posts_dir}**/**/index.md"),
     as: :posts,
     highlighters: [:makeup_elixir, :makeup_erlang]
 
