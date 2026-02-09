@@ -3,12 +3,16 @@
   author: "Brian Hammer",
   tags: ~w(hello),
   description: "My first blog post is here",
-  image_url: "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+  image_url: "./image.png",
   read_time: 8,
   hidden?: false
 }
 ---
 
-## Hello World
+## Hello New World
 
 Yes, this is **the post** you've been waiting for.
+
+Image: 
+
+![Cool Image](/posts/2026/02-09-hello-new-world/image.png)
