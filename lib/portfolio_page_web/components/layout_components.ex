@@ -127,6 +127,9 @@ defmodule PortfolioPageWeb.LayoutComponents do
   attr :tag_event, :string, required: true
   attr :search_event, :string, required: true
 
+  attr :search_value, :string, default: ""
+  attr :tag_value, :string, default: ""
+
   def blog_sidebar(assigns) do
     ~H"""
     <sidebar class="flex flex-col gap-8">
@@ -138,7 +141,7 @@ defmodule PortfolioPageWeb.LayoutComponents do
           <form phx-change="search" class="w-full">
             <label class="input input-bordered flex items-center gap-2 bg-base-100">
               <.icon name="hero-magnifying-glass" class="size-4" />
-              <input name="value" type="text" class="grow" placeholder="Search blog posts..." />
+              <input name="value" value={@search_value} type="text" class="grow" placeholder="Search blog posts..." />
             </label>
           </form>
         </div>
@@ -149,14 +152,14 @@ defmodule PortfolioPageWeb.LayoutComponents do
         <div class="card-body">
           <div class="card-title flex flex-row justify-between">
             <h3 class="">Tags</h3>
-            <a href="/blog/" class="btn btn-primary btn-sm btn-soft">All</a>
+            <.link patch="/blogs/" class="btn btn-primary btn-sm btn-soft">All</.link>
           </div>
-          <ul class="flex flex-col gap-2">
+          <ul class="flex flex-col">
             <li :for={tag <- @tags} class="">
               <span class="w-full px-2 block h-[2px] bg-base-300"></span>
               <.link
                 patch={"/blogs?tag=#{tag}"}
-                class="block py-2 text-lg font-medium border-base-300"
+                class={["block p-2 text-lg font-medium border-base-300", @tag_value == tag && "font-black bg-primary/70 text-primary-content"]}
               >
                 {tag}
               </.link>

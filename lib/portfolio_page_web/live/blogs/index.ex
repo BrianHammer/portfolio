@@ -13,11 +13,23 @@ defmodule PortfolioPageWeb.BlogLive.Index do
         <div class="flex flex-col sm:flex-row gap-8">
           <section class="flex-1 flex flex-col gap-4">
             <!-- Search Bar -->
-            <.blog_sidebar tag_event="filter_tags" search_event="search" />
+            <.blog_sidebar
+              search_value={@params["search"]}
+              tag_value={@params["tag"]}
+
+              tags={Blog.all_tags()}
+
+
+              tag_event="filter_tags"
+              search_event="search"
+            />
           </section>
-          <section class="flex-2" :if={@live_action == :index}>
-            <ul id="blog-list-section" class="flex-2 grid grid-cols-1 gap-4 lg:grid-cols-2 lg:grid-cols-2">
-              <li  :for={{dom_id, post} <- @streams.posts} id={dom_id}>
+          <section :if={@live_action == :index} class="flex-2">
+            <ul
+              id="blog-list-section"
+              class="flex-2 grid grid-cols-1 gap-4 lg:grid-cols-2 lg:grid-cols-2"
+            >
+              <li :for={{dom_id, post} <- @streams.posts} id={dom_id}>
                 <.blog_post_link post={post} />
               </li>
             </ul>
@@ -77,24 +89,29 @@ defmodule PortfolioPageWeb.BlogLive.Index do
   end
 
   def mount(_params, _session, socket) do
-    {:ok, socket |> assign(:post_id, nil) |> stream(:posts, [])}
+    {:ok,
+     socket
+     |> assign(:post, nil)
+     |> stream(:posts, [])}
   end
 
-  def handle_event("filter_tags", %{"tag_value" => value}, socket) do
-    {:noreply, socket |> push_patch("/blogs?tag=#{value}")}
+  def handle_event("filter_tags", %{"value" => value}, socket) do
+    {:noreply, socket |> push_patch(to: "/blogs?tag=#{value}")}
   end
 
-  def handle_event("search", %{"search_value" => value}, socket) do
-    {:noreply, socket |> push_patch("/blogs?tag=#{value}")}
+  def handle_event("search", %{"value" => value}, socket) do
+    {:noreply, socket |> push_patch(to: "/blogs?search=#{value}")}
   end
 
   def handle_params(params, _, socket) do
-    {:noreply, socket |> assign_action(params)}
+    assignable_params = %{"search" => params["search"], "tag" => params["tag"]}
+
+    {:noreply, socket |> assign(:params, assignable_params) |> assign_action(params)}
   end
 
   defp assign_action(socket, params) when socket.assigns.live_action == :index do
     socket
-    |> stream(:posts, Blog.get_posts(params, 30))
+    |> stream(:posts, Blog.get_posts(socket.assigns.params, 30), reset: true)
   end
 
   defp assign_action(socket, params) when socket.assigns.live_action == :show do

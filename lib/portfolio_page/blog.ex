@@ -61,12 +61,11 @@ defmodule PortfolioPage.Blog do
 
     all_posts()
     |> filter_hidden_posts()
-    |> IO.inspect()
     |> remove_posts_before_date(today)
   end
 
   defp filter_hidden_posts(posts) do
-    posts |> Enum.filter(& not &1.hidden?)
+    posts |> Enum.reject(& &1.hidden?)
   end
 
   defp remove_posts_before_date(posts, before_date) do
@@ -94,10 +93,15 @@ defmodule PortfolioPage.Blog do
   defp filter_posts_by_search(posts, nil), do: posts
   defp filter_posts_by_search(posts, ""), do: posts
 
-  defp filter_posts_by_search(posts, search_str) do
+  defp filter_posts_by_search(posts, search_str) when is_binary(search_str) do
+    normalized_search = "%#{String.downcase(search_str)}%"
+
     posts
     |> Enum.filter(fn post ->
-      post.title |> String.downcase() |> String.contains?(search_str |> String.downcase())
+      normalized_title = String.downcase(post.title)
+
+      String.contains?(normalized_title, normalized_search) or
+        String.match?(normalized_title, ~r/#{Regex.escape(search_str)}/i)
     end)
   end
 
