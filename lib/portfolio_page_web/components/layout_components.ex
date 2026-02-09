@@ -55,14 +55,14 @@ defmodule PortfolioPageWeb.LayoutComponents do
           </ul>
         </div>
 
-        <a class="btn btn-ghost flex flex-row gap-2 items-center">
+        <.link navigate={"/"}  class="btn btn-ghost flex flex-row gap-2 items-center">
           <span>
-            <img src="images/logo.svg" class="h-8 w-8 " />
+            <img src="/images/logo.svg" class="h-8 w-8 " />
           </span>
           <span class="font-bold text-3xl  bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
             LiveLogic
           </span>
-        </a>
+        </.link>
       </div>
       <div class="navbar-center hidden lg:flex">
         <ul class="menu menu-lg menu-horizontal px-1">

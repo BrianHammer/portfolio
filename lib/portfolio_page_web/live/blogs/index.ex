@@ -11,19 +11,6 @@ defmodule PortfolioPageWeb.BlogLive.Index do
         <h1>Listing Our Posts</h1>
 
         <div class="flex flex-col sm:flex-row gap-8">
-          <section class="flex-1 flex flex-col gap-4">
-            <!-- Search Bar -->
-            <.blog_sidebar
-              search_value={@params["search"]}
-              tag_value={@params["tag"]}
-
-              tags={Blog.all_tags()}
-
-
-              tag_event="filter_tags"
-              search_event="search"
-            />
-          </section>
           <section :if={@live_action == :index} class="flex-2">
             <ul
               id="blog-list-section"
@@ -37,6 +24,17 @@ defmodule PortfolioPageWeb.BlogLive.Index do
 
           <section :if={@live_action == :show} class="flex-2">
             <.blog_section post={@post} />
+          </section>
+
+          <section class="flex-1 flex flex-col gap-4">
+            <!-- Search Bar -->
+            <.blog_sidebar
+              search_value={@params["search"]}
+              tag_value={@params["tag"]}
+              tags={Blog.all_tags()}
+              tag_event="filter_tags"
+              search_event="search"
+            />
           </section>
         </div>
       </div>
@@ -60,11 +58,12 @@ defmodule PortfolioPageWeb.BlogLive.Index do
 
   def blog_section(assigns) do
     ~H"""
-    <article class="flex-2 h-fit card bg-base-100 rounded-lg shadow-xl">
+    <article class="flex-2  card bg-base-200 rounded-lg shadow-xl">
       <figure>
         <img
           src={@post.image_url}
           alt="Shoes"
+          class="w-full"
         />
       </figure>
 

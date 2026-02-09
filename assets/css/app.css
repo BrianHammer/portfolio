@@ -143,6 +143,133 @@
 @custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
 
 /* Make LiveView wrapper divs transparent for layout */
-[data-phx-session], [data-phx-teleported-src] { display: contents }
+[data-phx-session],
+[data-phx-teleported-src] {
+  display: contents
+}
 
 /* This file is for your main application CSS */
+.markdown-blog {
+  @apply text-lg;
+}
+
+/* Typography Hierarchy  */
+.markdown-blog h1 {
+  @apply font-bold text-5xl mb-8 bg-gradient-to-t from-primary to-secondary bg-clip-text text-transparent;
+}
+
+.markdown-blog h2 {
+  @apply font-bold text-4xl text-primary mb-8 bg-gradient-to-t from-primary to-secondary bg-clip-text text-transparent;
+}
+
+.markdown-blog h3 {
+  @apply font-bold text-3xl text-primary mb-8 bg-gradient-to-t from-primary to-secondary bg-clip-text text-transparent;
+}
+
+.markdown-blog h4 {
+  @apply font-bold text-2xl text-secondary mb-4;
+}
+
+.markdown-blog h5 {
+  @apply font-bold text-xl text-secondary mb-4;
+}
+
+.markdown-blog h6 {
+  @apply font-bold text-lg text-secondary mb-4;
+}
+
+
+/* Text Elements */
+.markdown-blog p {
+  @apply text-lg mb-4;
+}
+
+.markdown-blog strong {
+  @apply font-bold bg-gradient-to-tr from-error to-warning bg-clip-text text-transparent;
+}
+
+.markdown-blog em {
+  @apply font-bold text-warning;
+}
+
+/* Links with DaisyUI styling */
+.markdown-blog a {
+  @apply link link-info;
+}
+
+/* Lists */
+.markdown-blog ul,
+.markdown-blog ol {
+  @apply my-4 pl-6;
+}
+
+.markdown-blog ul {
+  @apply list-disc;
+}
+
+.markdown-blog ol {
+  @apply list-decimal;
+}
+
+.markdown-blog li {
+  @apply my-2;
+}
+
+.markdown-blog li>ul,
+.markdown-blog li>ol {
+  @apply my-2;
+}
+
+/* Code & Preformatted Blocks */
+.markdown-blog code {
+  @apply card-body bg-base-100 text-neutral-content px-1 py-1 rounded text-sm font-mono;
+}
+
+.markdown-blog pre {
+  @apply card bg-base-300 text-primary p-4 rounded-lg my-6 overflow-x-auto border border-base-300;
+}
+
+.markdown-blog pre code {
+  @apply bg-transparent p-0 text-inherit;
+}
+
+/* Blockquotes with DaisyUI accent */
+.markdown-blog blockquote {
+  @apply border-l-4 border-primary pl-4 my-6 italic text-base-content/80 text-secondary;
+}
+
+/* Images */
+.markdown-blog img {
+  @apply rounded-box my-6 max-w-full h-auto;
+}
+
+/* Tables */
+.markdown-blog table {
+  @apply w-full my-6 border-collapse;
+}
+
+.markdown-blog th {
+  @apply bg-base-300 text-base-content font-bold p-3 text-left border border-base-300;
+}
+
+.markdown-blog td {
+  @apply p-3 border border-base-300;
+}
+
+.markdown-blog tr:nth-child(even) {
+  @apply bg-base-300/50;
+}
+
+/* Horizontal Rules */
+.markdown-blog hr {
+  @apply my-8 border-t border-base-300;
+}
+
+/* Special Components using DaisyUI classes */
+.markdown-blog .alert {
+  @apply alert my-6;
+}
+
+.markdown-blog .btn {
+  @apply btn btn-primary;
+}
