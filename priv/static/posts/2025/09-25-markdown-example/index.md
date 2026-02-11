@@ -1,6 +1,6 @@
 %{
   title: "Markdown Example!",
-  author: "Online",
+  author: "Brian Hammer",
   tags: ~w(tutorials markdown coding),
   description: "An example of a markdown style I use for looking at the new website",
   image_url: "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",

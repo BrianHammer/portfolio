@@ -1,10 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    
+<!-- Default meta assigns -->
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="csrf-token" content={get_csrf_token()} />
-    <.live_title default="PortfolioPage" suffix=" · Phoenix Framework">
+    
+<!-- Blog Posts -->
+
+    <%= if assigns[:post] do %>
+      <!-- meta descriptions -->
+      <meta name="description" content={@post.description} /> 
+
+      <!-- canonical URL -->
+      <link
+        rel="canonical"
+        href={PortfolioPageWeb.Endpoint.url() <> ~p"/blogs/#{assigns[:post].id}"}
+      />
+      <!-- twitter stuff -->
+      <meta property="og:type" content="article" />
+      <meta property="og:title" content={assigns[:post].title} />
+      <meta property="og:description" content={assigns[:post].description} />
+      <meta property="og:image" content={assigns[:post].image_url} />
+    <% else %>
+    <!-- default description when no blog is present -->
+      <meta
+        name="description"
+        content="A full stack development studio that specializes in building realtime apps."
+      />
+    <% end %>
+
+    <.live_title default="LiveLogic" suffix=" · LiveLogic">
       {assigns[:page_title]}
     </.live_title>
     <link phx-track-static rel="stylesheet" href={~p"/assets/css/app.css"} />

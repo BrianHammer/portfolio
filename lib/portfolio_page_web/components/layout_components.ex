@@ -89,7 +89,7 @@ defmodule PortfolioPageWeb.LayoutComponents do
     ~H"""
     <footer class="footer sm:footer-horizontal bg-base-200 text-base-content p-10">
       <aside class="hidden sm:block">
-        <img src="images/logo-white.svg" class="size-20 mx-auto" />
+        <img src="/images/logo-white.svg" class="size-20 mx-auto" />
         <p>
           LiveLogic Development Studio.
         </p>
@@ -193,9 +193,9 @@ defmodule PortfolioPageWeb.LayoutComponents do
 
       <div class="bg-base-100 card shadow-lg bg-gradient-to-br from-primary/10 to-secondary/10 border-2 border-primary/20">
         <div class="card-body">
-          <h3 class="card-title">Request Demo</h3>
+          <h3 class="card-title">Professional Development Services</h3>
           <p>
-            Xprocura is a real-time construction procurement software that saves countless hours of procurement tracking.
+            LiveLogic is a development studio dedicated to building cutting real-time applications.
           </p>
           <div class="w-full flex flex-row gap-2 mt-3">
             <a

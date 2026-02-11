@@ -8,7 +8,7 @@ defmodule PortfolioPageWeb.BlogLive.Index do
     ~H"""
     <Layouts.app flash={@flash}>
       <div class="container mx-auto my-16">
-        <h1>Listing Our Posts</h1>
+        <div class="text-4xl mb-4">Blogs</div>
 
         <div class="flex flex-col sm:flex-row gap-8">
           <section :if={@live_action == :index} class="flex-2">
@@ -58,32 +58,46 @@ defmodule PortfolioPageWeb.BlogLive.Index do
 
   def blog_section(assigns) do
     ~H"""
-    <article class="flex-2  card bg-base-200 rounded-lg shadow-xl">
+    <div class="flex-2 min-w-0 card bg-base-200 rounded-lg shadow-xl">
       <figure>
         <img
           src={@post.image_url}
           alt="Shoes"
-          class="w-full"
+          class="w-full object-cover h-75"
         />
+        <figcaption class="sr-only">
+          picture image for the article: {@post.title}
+        </figcaption>
       </figure>
 
-      <div class="card-body flex flex-col space-y-4">
-        <h2 class="text-3xl font-bold">{@post.title}</h2>
-        <ul class="flex flex-row gap-2 flex-wrap">
-          <li :for={tag <- @post.tags} class="badge badge-primary badge-lg badge-soft">
-            {tag}
-          </li>
-        </ul>
+      <article class="card-body flex flex-col space-y-4">
+        <header>
+          <h1 class="text-5xl mb-2 font-bold bg-gradient-to-t from-primary to-secondary bg-clip-text text-transparent">
+            {@post.title}
+          </h1>
+          <p class="text-lg text-base-content/80 ">{@post.description}</p>
+        </header>
 
-        <p class="text-md text-base-content/80 ">{@post.description}</p>
-        <div class="flex flex-row gap-4">
-          <div>{@post.author}</div>
-          <div>{@post.read_time} min read</div>
-          <div>{Formatter.format_date(@post.date)}</div>
+        <nav aria-label="Post tags">
+          <ul class="flex flex-row gap-2 flex-wrap">
+            <li :for={tag <- @post.tags}>
+              <.link class="btn btn-secondary btn-sm" patch={~p"/blogs?tag=#{tag}"}>{tag}</.link>
+            </li>
+          </ul>
+        </nav>
+
+        <div class="flex flex-row gap-2">
+          <address class="badge">{@post.author}</address>
+          <div class="badge">{@post.read_time} min read</div>
+          <time class="badge" datetime={Date.to_iso8601(@post.date)}>
+            {Formatter.format_date(@post.date)}
+          </time>
         </div>
-        <div class="markdown-blog">{raw(@post.body)}</div>
-      </div>
-    </article>
+        <section class="markdown-blog">
+          {raw(@post.body)}
+        </section>
+      </article>
+    </div>
     """
   end
 
@@ -110,11 +124,15 @@ defmodule PortfolioPageWeb.BlogLive.Index do
 
   defp assign_action(socket, params) when socket.assigns.live_action == :index do
     socket
+    |> assign(:page_title, "Blogs")
     |> stream(:posts, Blog.get_posts(socket.assigns.params, 30), reset: true)
   end
 
   defp assign_action(socket, params) when socket.assigns.live_action == :show do
+    post = Blog.get_post_by_id!(params["post_id"])
+
     socket
-    |> assign(:post, Blog.get_post_by_id!(params["post_id"]))
+    |> assign(:page_title, "#{post.title} - Blog")
+    |> assign(:post, post)
   end
 end
