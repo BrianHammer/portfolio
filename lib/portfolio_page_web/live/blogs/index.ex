@@ -11,7 +11,7 @@ defmodule PortfolioPageWeb.BlogLive.Index do
       <div class="container mx-auto my-16">
         <div class="text-4xl mb-4">Blogs</div>
 
-        <div class="flex flex-col sm:flex-row gap-8">
+        <div class="flex flex-col md:flex-row gap-8">
           <section :if={@live_action == :index} class="flex-2">
             <ul
               id="blog-list-section"
@@ -35,9 +35,18 @@ defmodule PortfolioPageWeb.BlogLive.Index do
               tags={Blog.all_tags()}
               tag_event="filter_tags"
               search_event="search"
+              recent_posts={Blog.get_recent_posts(5)}
             />
           </section>
         </div>
+        <section :if={@live_action == :show}>
+              <h4 class="text-2xl font-bold mt-8 mb-4"> Recommended Posts </h4>
+              <ul class="w-full grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-4">
+                <li :for={post <- Blog.get_recommendations_by_post(@post, 4)}>
+                  <.blog_post_link post={post} />
+                </li>
+              </ul>
+            </section>
       </div>
     </Layouts.app>
     """

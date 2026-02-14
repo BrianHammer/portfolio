@@ -181,7 +181,7 @@
 
 /* Text Elements */
 .markdown-blog p {
-  @apply text-lg mb-2 mt-2 text-red-500;
+  @apply text-lg mb-2 mt-2 text-base-content;
 }
 
 .markdown-blog strong {
@@ -194,7 +194,7 @@
 
 /* Links with DaisyUI styling */
 .markdown-blog a {
-  @apply inline text-underline;
+  @apply link link-info;
 }
 
 /* Horizontal Rules */
@@ -228,7 +228,11 @@
 
 /* Blockquotes with DaisyUI accent */
 .markdown-blog blockquote {
-  @apply border-l-4 border-primary pl-4 my-6 italic text-base-content/80 text-secondary;
+  @apply border-l-4 border-primary pl-4 my-6;
+}
+
+.markdown-blog blockquote p {
+  @apply italic text-secondary;
 }
 
 /* Images */

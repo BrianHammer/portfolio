@@ -55,7 +55,7 @@ defmodule PortfolioPageWeb.LayoutComponents do
           </ul>
         </div>
 
-        <.link navigate={"/"}  class="btn btn-ghost flex flex-row gap-2 items-center">
+        <.link navigate="/" class="btn btn-ghost flex flex-row gap-2 items-center">
           <span>
             <img src="/images/logo.svg" class="h-8 w-8 " />
           </span>
@@ -141,7 +141,13 @@ defmodule PortfolioPageWeb.LayoutComponents do
           <form phx-change="search" class="w-full">
             <label class="input input-bordered flex items-center gap-2 bg-base-100">
               <.icon name="hero-magnifying-glass" class="size-4" />
-              <input name="value" value={@search_value} type="text" class="grow" placeholder="Search blog posts..." />
+              <input
+                name="value"
+                value={@search_value}
+                type="text"
+                class="grow"
+                placeholder="Search blog posts..."
+              />
             </label>
           </form>
         </div>
@@ -154,12 +160,15 @@ defmodule PortfolioPageWeb.LayoutComponents do
             <h3 class="">Tags</h3>
             <.link patch="/blogs/" class="btn btn-primary btn-sm btn-soft">All</.link>
           </div>
-          <ul class="flex flex-col">
+          <ul class="flex flex-col list">
             <li :for={tag <- @tags} class="">
               <span class="w-full px-2 block h-[2px] bg-base-300"></span>
               <.link
                 patch={"/blogs?tag=#{tag}"}
-                class={["block p-2 text-lg font-medium border-base-300", @tag_value == tag && "font-black bg-primary/70 text-primary-content"]}
+                class={[
+                  "block p-2 text-lg font-medium border-base-300",
+                  @tag_value == tag && "font-black bg-primary/70 text-primary-content"
+                ]}
               >
                 {tag}
               </.link>
@@ -173,17 +182,17 @@ defmodule PortfolioPageWeb.LayoutComponents do
       <div class="bg-base-200 card shadow-lg">
         <div class="card-body">
           <h3 class="card-title">Latest Posts</h3>
-          <ul class="">
-            <li :for={post <- @recent_posts}>
+          <ul class="list">
+            <li :for={post <- @recent_posts} class="">
               <span class="w-full px-2 block h-[2px] bg-base-300"></span>
-              <a href={"/blog/#{post.id}"} class="block py-2 flex flex-row justify-between">
-                <span class="font-medium">
+              <.link patch={"/blogs/#{post.id}"} class="block px-1 py-2 hover:bg-secondary/10 flex flex-row justify-between">
+                <div class="flex flex-col gap-2">
                   {post.title}
-                </span>
-                <span class="text-sm font-thin text-base-content/60">
-                  {post.date |> Formatter.format_date()}
-                </span>
-              </a>
+                  <div class="text-xs text-base-content/50 line-clamp-3">
+                  {post.description}
+                  </div>
+                </div>
+              </.link>
             </li>
           </ul>
         </div>
