@@ -155,33 +155,33 @@
 
 /* Typography Hierarchy  */
 .markdown-blog h1 {
-  @apply font-bold text-5xl mb-8 bg-gradient-to-t from-primary to-secondary bg-clip-text text-transparent;
+  @apply font-bold text-5xl mt-8 mb-1 bg-gradient-to-t from-primary to-secondary bg-clip-text text-transparent;
 }
 
 .markdown-blog h2 {
-  @apply font-bold text-5xl text-primary mb-8 bg-gradient-to-t from-primary to-secondary bg-clip-text text-transparent;
+  @apply font-bold text-5xl text-primary mt-8 mb-2 bg-gradient-to-t from-primary to-secondary bg-clip-text text-transparent;
 }
 
 .markdown-blog h3 {
-  @apply font-bold text-4xl text-primary mb-8 bg-gradient-to-t from-primary to-secondary bg-clip-text text-transparent;
+  @apply font-bold text-4xl text-primary mt-8 mb-2 bg-gradient-to-t from-primary to-secondary bg-clip-text text-transparent;
 }
 
 .markdown-blog h4 {
-  @apply font-bold text-3xl text-primary mb-8 bg-gradient-to-t from-primary to-secondary bg-clip-text text-transparent;
+  @apply font-bold text-3xl text-primary mt-4 mb-1 bg-gradient-to-t from-primary to-secondary bg-clip-text text-transparent;
 }
 
 .markdown-blog h5 {
-  @apply font-bold text-2xl text-secondary mb-4;
+  @apply font-bold text-2xl text-secondary mt-4 mb-1;
 }
 
 .markdown-blog h6 {
-  @apply font-bold text-xl text-secondary mb-4;
+  @apply font-bold text-xl text-secondary mt-4 mb-1;
 }
 
 
 /* Text Elements */
 .markdown-blog p {
-  @apply text-lg mb-4 indent-8;
+  @apply text-lg mb-2 mt-2;
 }
 
 .markdown-blog strong {
@@ -189,7 +189,7 @@
 }
 
 .markdown-blog em {
-  @apply font-bold text-warning;
+  @apply font-bold;
 }
 
 /* Links with DaisyUI styling */
