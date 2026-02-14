@@ -181,7 +181,7 @@
 
 /* Text Elements */
 .markdown-blog p {
-  @apply text-lg mb-4;
+  @apply text-lg mb-4 indent-8;
 }
 
 .markdown-blog strong {
@@ -222,15 +222,15 @@
 
 /* Code & Preformatted Blocks */
 .markdown-blog code {
-  @apply card-body bg-base-100 text-neutral-content px-1 py-1 rounded text-sm font-mono;
+  @apply  bg-base-100 text-neutral-content px-1 py-1 rounded text-sm font-mono;
 }
 
 .markdown-blog pre {
-  @apply card bg-base-300 text-primary p-4 rounded-lg my-6 overflow-x-auto border border-base-300;
+  @apply card  bg-base-300 text-primary my-6 overflow-x-auto border border-base-300 whitespace-pre-wrap break-words;
 }
 
 .markdown-blog pre code {
-  @apply bg-transparent p-0 text-inherit;
+  @apply card-body bg-transparent text-inherit;
 }
 
 /* Blockquotes with DaisyUI accent */

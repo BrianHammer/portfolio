@@ -86,7 +86,7 @@ defmodule PortfolioPageWeb.BlogLive.Index do
           </ul>
         </nav>
 
-        <div class="flex flex-row gap-2">
+        <div class="flex flex-row  gap-2">
           <address class="badge">{@post.author}</address>
           <div class="badge">{@post.read_time} min read</div>
           <time class="badge" datetime={Date.to_iso8601(@post.date)}>
@@ -122,7 +122,7 @@ defmodule PortfolioPageWeb.BlogLive.Index do
     {:noreply, socket |> assign(:params, assignable_params) |> assign_action(params)}
   end
 
-  defp assign_action(socket, params) when socket.assigns.live_action == :index do
+  defp assign_action(socket, _params) when socket.assigns.live_action == :index do
     socket
     |> assign(:page_title, "Blogs")
     |> stream(:posts, Blog.get_posts(socket.assigns.params, 30), reset: true)

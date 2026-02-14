@@ -6,7 +6,7 @@ defmodule PortfolioPageWeb.LayoutComponents do
   use Phoenix.Component
   import PortfolioPageWeb.CoreComponents, only: [icon: 1]
 
-  alias PortfolioPageWeb.Utils.Formatter
+  alias PortfolioPage.Utils.Formatter
 
   @contact_link %{label: "contact", url: "/#contact-us"}
 

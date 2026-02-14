@@ -11,20 +11,29 @@
 
     <%= if assigns[:post] do %>
       <!-- meta descriptions -->
-      <meta name="description" content={@post.description} /> 
-
-      <!-- canonical URL -->
+      <meta name="description" content={@post.description} />
+      
+<!-- canonical URL -->
       <link
         rel="canonical"
         href={PortfolioPageWeb.Endpoint.url() <> ~p"/blogs/#{assigns[:post].id}"}
       />
+      
+<!-- Schema Markup -->
+      <script type="application/ld+json">
+          <%= Phoenix.HTML.raw(
+          PortfolioPage.Blog.Post.generate_schema_markup(@post)
+        ) %>
+      </script>
+
+
       <!-- twitter stuff -->
       <meta property="og:type" content="article" />
       <meta property="og:title" content={assigns[:post].title} />
       <meta property="og:description" content={assigns[:post].description} />
       <meta property="og:image" content={assigns[:post].image_url} />
     <% else %>
-    <!-- default description when no blog is present -->
+      <!-- default description when no blog is present -->
       <meta
         name="description"
         content="A full stack development studio that specializes in building realtime apps."
