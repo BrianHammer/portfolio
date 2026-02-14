@@ -11,69 +11,37 @@
 
 ## The Problem
 
-Markdown generators often translate the file directly into HTML components, but without any classes assigned by default. This is a problem with Tailwind as classes are used to directly style each element. 
+Markdown generators translate the file directly into HTML components without any classes assigned by default. This is a problem with Tailwind as classes are used to directly style each element. 
 
-One solution is to assign classes to each element by the markdown generators documentation or by custom code, but this adds *lots of complexity.* Another problem with this approach is you must ensure tailwind will not purge any of the classes assigned to the elements.
+One solution is to assign classes to each element by custom code, but this adds *lots of unecessary complexity.* You also must ensure Tailwind does not purge the classes.
 
 **There is a better way.**
 
 ## The Solution
 
-One solution that adds little complexity is to use the power of CSS combined with Tailwind utility classes. This can be done with Tailwind's *@apply* feature linked below. Every component can be styled by assigning a class name at the root of where the markdown is generated, and assigning CSS classes for every type of component, as shown below:
+The best solution is to use the power of CSS combined with Tailwind utility classes. This can be done with Tailwind's *@apply* feature linked below. Every component can be styled by first wraping the content with div with a special class name, then by styling different elements within this class.
 
 
-###### Generate markdown inside an element with a specific class name. We will use 'markdown-blog' throughout this tutorial
+We will go over styling **every** markdown element that can be generated. There will be a complete cheat-sheet at the bottom!
+
+### 1. Setup
+
+First get your Markdown generator working, and wrap it between the class element. 
 
 ```html
-<div class="markdown-blog">
-  <!-- Replace and generate your markdown below... -->
-  {render_markdown_function(markdown_content)}
-</div>
+<section class="markdown-blog">
+  <!-- Generate markdown here! -->
+</section>
 ```
 
-###### Style the markdown  
 
-```css
-/* Put this at the bottom of 'app.css', or in a separate file and import it  */
-
-/* Applies to the content around markdown-blog */
-.markdown-blog {
-  @apply bg-black text-white text-lg;
-}
-
-/* Applies to each paragraph under 'markdown-blog' */
-.markdown-blog p {
-  @apply font-thin text-md mb-2 text-white;
-}
-
-/* Applies to every h1 header generated under 'markdown-blog' */
-.markdown-blog h1 {
-  @apply font-bold text-5xl mb-8 text-emerald-500;
-}
-/*
-...repeat for every possible markdown element
-*/
-```
-
-We will go over styling **every** markdown element that can be generated (that I know of). There will be a complete cheat-sheet at the bottom!
-
-### Setup
-
-First get your Markdown generator working. Make sure the 'markdown-blog' element is **exactly ONE element** between the markdown HTML. Next verify the structure is right by going into inspect element. Your content should look like this:
+Make sure the 'markdown-blog' element is **exactly ONE element** between the markdown HTML. Do this by going into inspect element. Your content should look like this:
 
 ![Correct inspect-element structure](./good-inspect-element.png)
 
 When using the markdown file shown here: [Markdown Sample Used](https://onlinemarkdown.com/)
 
-###### I replaced the 'div' with 'section' as the root to be more semantically correct
-
-```html
-<section class="markdown-blog">
-  <!-- Generate your markdown here... -->
-</section>
-```
-
-### Styling Elements
+### Styling Paragraphs
 
 By using inspect element, you can style each rendered HTML element based on its position or its tag name from its root 'markdown-blog'. 
 
