@@ -22,8 +22,7 @@ defmodule PortfolioPage.Blog.Post do
     :date,
     :read_time,
     :image_url,
-    :hidden?,
-    :date_modified
+    :hidden?
   ]
 
   def build(filename, attrs, body) do
@@ -40,14 +39,11 @@ defmodule PortfolioPage.Blog.Post do
 
   """
   def generate_schema_markup(post = %__MODULE__{}) do
-    last_updated = post.last_updated || post.date
-
     %{
       "@context" => "https://schema.org",
       "@type" => "BlogPosting",
       "headline" => post.title,
       "datePublished" => post.date |> Date.to_iso8601(),
-      "dateModified" => last_updated |> Date.to_iso8601(),
       "image" => post.image_url,
       "author" => %{
         "@type" => "Person",

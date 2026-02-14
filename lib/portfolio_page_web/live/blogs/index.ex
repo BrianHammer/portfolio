@@ -4,6 +4,7 @@ defmodule PortfolioPageWeb.BlogLive.Index do
   alias PortfolioPage.Utils.Formatter
   alias PortfolioPage.Blog
 
+  @spec render(any()) :: Phoenix.LiveView.Rendered.t()
   def render(assigns) do
     ~H"""
     <Layouts.app flash={@flash}>

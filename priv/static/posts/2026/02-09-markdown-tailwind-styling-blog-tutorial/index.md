@@ -59,13 +59,11 @@ We will go over styling **every** markdown element that can be generated (that I
 
 ### Setup
 
-Every framework is different and getting Markdown to generate into HTML is outside of the scope of this course. Be sure that your Markdown file is generating properly and that your element using 'markdown-blog' is exactly **ONE element** between *all* the paragraphs generated. 
-
-Once the unstyled markdown is generated, verify the structure is right by going into inspect element. Using the Markdown listed below, your content should look like this:
-
-[Markdown Sample Used](https://onlinemarkdown.com/)
+First get your Markdown generator working. Make sure the 'markdown-blog' element is **exactly ONE element** between the markdown HTML. Next verify the structure is right by going into inspect element. Your content should look like this:
 
 ![Correct inspect-element structure](./good-inspect-element.png)
+
+When using the markdown file shown here: [Markdown Sample Used](https://onlinemarkdown.com/)
 
 ###### I replaced the 'div' with 'section' as the root to be more semantically correct
 
@@ -78,10 +76,6 @@ Once the unstyled markdown is generated, verify the structure is right by going 
 ### Styling Elements
 
 By using inspect element, you can style each rendered HTML element based on its position or its tag name from its root 'markdown-blog'. 
-
-
-
-
 
 
 
