@@ -18,6 +18,7 @@ defmodule PortfolioPageWeb.Router do
     pipe_through :browser
 
     get "/", PageController, :home
+    get "/services", PageController, :services
     live "/blogs", BlogLive.Index, :index
     live "/blogs/:post_id", BlogLive.Index, :show
   end

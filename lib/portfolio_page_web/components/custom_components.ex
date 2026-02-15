@@ -43,6 +43,11 @@ defmodule PortfolioPageWeb.CustomComponents do
   attr :title_highlight, :string, default: ""
   attr :subtitle, :string, default: ""
 
+  attr :primary_button_text, :string, default: "Contact Us"
+  attr :primary_button_url, :string, default: "/#contact-us"
+  attr :secondary_button_text, :string, default: "Learn More"
+  attr :secondary_button_url, :string, default: "/"
+
   def icon_card_large(assigns) do
     ~H"""
     <div class="w-full shadow-primary/10 shadow-2xl card bg-radial from-primary/5 from-0% to-base-100/10">
@@ -61,8 +66,12 @@ defmodule PortfolioPageWeb.CustomComponents do
         <p class="text-xl mb-4">{@subtitle}</p>
 
         <div class="card-actions">
-          <a class="btn btn-lg btn-primary">Reach Out</a>
-          <a class="btn btn-lg btn-secondary btn-outline">Learn More</a>
+          <.link navigate={@primary_button_url} class="btn btn-lg btn-primary">
+            {@primary_button_text}
+          </.link>
+          <.link navigate={@secondary_button_url} class="btn btn-lg btn-secondary btn-outline">
+            {@secondary_button_text}
+          </.link>
         </div>
       </div>
     </div>
@@ -75,7 +84,7 @@ defmodule PortfolioPageWeb.CustomComponents do
     ~H"""
     <.blog_link_card
       image_url={@post.image_url}
-      category={"cool"}
+      tags={@post.tags}
       url={"/blogs/#{@post.id}"}
       date={@post.date}
       title={@post.title}
@@ -88,10 +97,12 @@ defmodule PortfolioPageWeb.CustomComponents do
     default: "https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp"
 
   attr :url, :string, default: "#"
-  attr :category, :string, default: nil
+  attr :tags, :list, default: []
   attr :date, :map, default: nil
   attr :title, :string, required: true
   attr :subtitle, :string, required: true
+
+  attr :tags_limit, :integer, default: 3
 
   def blog_link_card(assigns) do
     ~H"""
@@ -101,17 +112,28 @@ defmodule PortfolioPageWeb.CustomComponents do
           <img
             src={@image_url}
             alt={"Article image for #{@title}"}
-            class="group-hover:scale-105 transition-all duration-200  group-hover:opacity-80"
+            class="group-hover:scale-105 transition-all duration-200 group-hover:opacity-80"
           />
         </figure>
         <div class="card-body group-hover:text-secondary duration-200">
-          <div class="flex flex-row gap-2 mb-2 flex-wrap">
-            <div :if={@category} class="badge badge-secondary">Architecture</div>
-            <div :if={@date} class="flex gap-1 text-sm">
+          <ul class="flex flex-row gap-2 mb-2 flex-wrap">
+            <li
+              :for={tag <- @tags |> Enum.take(3)}
+              class="badge badge-secondary badge-sm"
+            >
+              {tag}
+            </li>
+            <li
+              :if={@tags |> length() > @tags_limit}
+              class="badge badge-sm badge-secondary badge-outline"
+            >
+              +{length(@tags) - @tags_limit} more
+            </li>
+            <li :if={@date} class="flex gap-1 text-sm">
               <.icon name="hero-calendar" class="size-5" />
               <span>{@date |> Formatter.format_date()}</span>
-            </div>
-          </div>
+            </li>
+          </ul>
           <h2 class="card-title">{@title}</h2>
           <p class="line-clamp-3">
             {@subtitle}

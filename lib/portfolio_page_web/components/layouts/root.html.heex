@@ -2,6 +2,9 @@
 <html lang="en">
   <head>
     
+<!-- Favicons -->
+    <link rel="icon" type="image/svg+xml" href="/images/logo.svg" />
+    
 <!-- Default meta assigns -->
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -25,9 +28,8 @@
           PortfolioPage.Blog.Post.generate_schema_markup(@post)
         ) %>
       </script>
-
-
-      <!-- twitter stuff -->
+      
+<!-- twitter stuff -->
       <meta property="og:type" content="article" />
       <meta property="og:title" content={assigns[:post].title} />
       <meta property="og:description" content={assigns[:post].description} />

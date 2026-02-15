@@ -1,361 +1,449 @@
-
-<Layouts.app flash={@flash} >
-<section
-  id="hero-section"
-  class="relative min-h-[90vh] w-full"
->
-  <!-- Background layer -->
-  <div class="absolute inset-0">
-    <img
-      src={~p"/images/backgrounds/gold-background-5.jpg"}
-      class="h-full w-full object-cover object-top-right"
-    />
-    <div class="absolute inset-0 bg-gradient-to-b from-base-100/5 via-base-100/0 to-base-100/100">
+<Layouts.app flash={@flash}>
+  <section
+    id="hero-section"
+    class="relative min-h-[90vh] w-full"
+  >
+    <!-- Background layer -->
+    <div class="absolute inset-0">
+      <img
+        src={~p"/images/backgrounds/gold-background-5.jpg"}
+        class="h-full w-full object-cover object-center-left"
+      />
+      <div class="absolute inset-0 bg-gradient-to-b from-base-100/5 via-base-100/0 to-base-100/100">
+      </div>
     </div>
-  </div>
-  
+    
 <!-- Content goes here -->
-  <div class="container mx-auto h-full flex items-center justify-center relative z-10">
-    <div class="card max-w-150 bg-base-200/0 shadow-sm">
-      <div class="card-body">
-        <h2 class="card-title text-5xl bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent pb-8">
-          From Vision <br /> to Reliable Real-time Software
-        </h2>
-        <p class="pb-4 text-lg text-neutral-content">
-          Complex real-time software for founders that value foundations built on stone.
-          Turn ideas into production-ready real-time software that stay
-          reliable under pressure and scale effortlessly as your business grows.
-        </p>
-        <div class="card-actions justify-start">
-          <.link navigate="/#contact-us" class="btn btn-primary">Contact</.link>
+    <div class="container mx-auto h-full min-h-[90vh] flex items-center justify-center relative z-10 px-4">
+      <div class="card max-w-150 bg-base-100/0">
+        <div class="card-body">
+          <h2 class="card-title text-5xl bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
+            From Vision <br /> to Reliable Real-time Software
+          </h2>
+          <p class="py-6 text-lg text-neutral-content">
+            Turn ideas into production-ready real-time software that stays
+            reliable under pressure and scales effortlessly as your business grows.
+          </p>
+          <div class="card-actions justify-start">
+            <.link navigate="/#contact-us" class="btn btn-primary">Contact</.link>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<section
-  id="problem-section"
-  class="bg-gradient-to-t from-base-200 via-error/10 to-base-100 py-16"
->
-  <div class="container mx-auto flex flex-col items-center gap-8">
-    <div class="badge badge-error badge-soft hidden sm:block badge-lg">
-      <.icon name="hero-exclamation-triangle" class="size-4" /> The costs of poor execution
-      <.icon name="hero-exclamation-triangle" class="size-4" />
-    </div>
-    <h2 class="text-4xl text-primary">
-      Real-time Features Done Wrong
-      <span class="font-bold bg-gradient-to-r from-error to-warning bg-clip-text text-transparent">
-        Can be Devastating.
-      </span>
-    </h2>
-
-    <div class="card w-full max-w-200 bg-gradient-to-tl to-error/10 from-base-100 via-base-100 shadow-lg text-content ">
-      <div class="card-body text-md lg:text-lg">
-        <div class="">
-          <h3 class="">
-            There’s a risk of <span class="text-error font-bold">underestimating complexity</span>, which causes poor technical execution.
-          </h3>
-          <h5 class="text-">
-            The Results:
-          </h5>
-        </div>
-        <ul class="flex flex-col gap-2">
-          <li>
-            <.icon name="hero-question-mark-circle" class="size-8 text-error" />
-            Deadlines slip and become unpredictable
-          </li>
-          <li>
-            <.icon name="hero-arrow-trending-up" class="size-8 text-error" />
-            New Features become slow and costly
-          </li>
-          <li>
-            <.icon name="hero-wrench-screwdriver" class="size-8 text-error" />
-            Maintenance costs get expensive
-          </li>
-          <li>
-            <.icon name="hero-bug-ant" class="size-8 text-error" />
-            Missed bugs take down entire servers
-          </li>
-          <li>
-            <.icon name="hero-server-stack" class="size-8 text-error" />
-            Scaling becomes an expensive burden
-          </li>
-        </ul>
-
-        <h4 class="">
-          Even once the project is finished,
-          the final product can feel slow and buggy,
-          eroding <span class="text-error font-bold">brand reputation</span>
-          and <span class="text-error font-bold">user trust</span>.
-        </h4>
-        <p class="">
-          These issues can all be mitigated starting with a <span class="link font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent"> solid foundation </span>.
-        </p>
+  <section
+    id="problem-section"
+    class="bg-gradient-to-t from-base-200 via-error/10 to-base-100 py-16 lg:py-24"
+  >
+    <div class="container mx-auto flex flex-col items-center gap-12 px-4">
+      <div class="badge badge-error badge-soft hidden sm:block badge-lg">
+        <.icon name="hero-exclamation-triangle" class="size-4" /> The costs of poor execution
+        <.icon name="hero-exclamation-triangle" class="size-4" />
       </div>
-    </div>
-  </div>
-</section>
 
-<section
-  id="solutions-section"
-  class="bg-gradient-to-t from-base-100 via-secondary/20 to-base-200 to-90% py-16 min-h-screen"
->
-  <div class="container mx-auto">
-    <header class="text-center">
-      <h2 class="text-5xl mb-4">
-        Built for
-        <span class="font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent ">
-          Long Term Success
+      <h2 class="text-4xl lg:text-5xl text-primary text-center max-w-4xl">
+        Real-time Features Done Wrong
+        <span class="font-bold bg-gradient-to-r from-error to-warning bg-clip-text text-transparent">
+          Can be Devastating.
         </span>
       </h2>
-      <p class="text-2xl mb-8">
-        We deliver software with long-term
-        <span class="font-bold text-primary"> reliability </span>
-        and <span class="font-bold text-primary"> scalability </span>
-        in mind.
-      </p>
-    </header>
 
-    <p class="text-2xl font-">
-      Your product starts off with thoughtful technical execution giving you shorter and predictable deadlines. Furthermore, we write software in Elixir, a language known for its high reliability.
-    </p>
-    <p>Working with us means:</p>
-
-    <div class="w-full flex flex-col lg:flex-row gap-8 my-16">
-      <.icon_card
-        icon_name="hero-check-circle"
-        title="Reliable deadlines"
-        subtitle="Predictable timelines you can count on"
-      />
-      <.icon_card
-        icon_name="hero-shield-check"
-        title="Robust Code"
-        subtitle="Built to handle edge cases and scale gracefully"
-      />
-      <.icon_card
-        icon_name="hero-arrow-trending-up"
-        title="Designed to Scale"
-        subtitle="Architecture that grows with your business"
-      />
-    </div>
-
-    <.icon_card_large
-      icon_name="hero-bolt"
-      title="Get the Benefits of"
-      title_highlight="Real-time Interaction"
-      subtitle="without unnecessary risk."
-    />
-  </div>
-</section>
-<div class="bg-base-100">
-  <div class="mx-auto h-1 w-64 bg-gradient-to-tr from-primary to-secondary rounded-full"></div>
-</div>
-
-<section id="case-studies" class="min-h-screen bg-base-100 py-16 ">
-  <div class="container mx-auto">
-    <div class="text-center flex flex-col gap-4 text-2xl mb-8">
-      <h2 class="inline mx-auto text-5xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
-        Case Studies
-      </h2>
-      <p>Real-world solutions that deliver measurable results.</p>
-    </div>
-
-    <div class="card lg:card-side bg-base-200 shadow-xl shadow-primary/5">
-      <figure class="">
-        <img
-          src="/images/backgrounds/construction-background.jpg"
-          alt="Shoes"
-          class="w- w-full h-64 lg:h-full lg:w-full object-cover"
-        />
-      </figure>
-      <div class="card-body">
-        <div class="space-x-4">
-          <div class="badge badge-primary badge-xl bg-gradient-to-r border-none font-bold to-primary from-secondary">
-            <.icon name="hero-sparkles" class="size-6" /> Featured Project
+      <div class="card w-full max-w-200 bg-gradient-to-tl to-error/10 from-base-100 via-base-100 shadow-lg text-content">
+        <div class="card-body gap-6">
+          <div class="space-y-2">
+            <h3 class="text-xl lg:text-2xl font-medium">
+              There's a risk of <span class="text-error font-bold">underestimating complexity</span>, which causes poor technical execution.
+            </h3>
+            <h5 class="text-lg font-semibold text-error">
+              The Results:
+            </h5>
           </div>
-          <div class="badge badge-xl badge-ghost badge-secondary">
-            Construction Management
-          </div>
-        </div>
 
-        <h2 class="text-primary font-bold text-3xl">Revolutionizing Construction Management</h2>
-        <p class="text-xl">
-          XProcura is a construction procurement tracking software to help general
-          contractors track shipments on a worksite. A sophisticated platform built
-          for enterprise-scale operations.
-        </p>
-
-        <div class="">
-          <h5 class="text-secondary text-lg font-bold mb-2">Key Features:</h5>
-          <ul class="flex flex-col gap-2 text-lg">
-            <li class="flex flex-row gap-2 items-center">
-              <.icon name="hero-check-circle" class="size-5 text-secondary" />
-              <span>Multi-tenant multi-project application architecture</span>
+          <ul class="flex flex-col gap-4">
+            <li class="flex items-start gap-3">
+              <.icon name="hero-question-mark-circle" class="size-6 text-error shrink-0 mt-0.5" />
+              <span>Deadlines slip and become unpredictable</span>
             </li>
-
-            <li class="flex flex-row gap-2 items-center">
-              <.icon name="hero-check-circle" class="size-5 text-secondary" />
-              <span>Complete enterprise and project admin system</span>
+            <li class="flex items-start gap-3">
+              <.icon name="hero-arrow-trending-up" class="size-6 text-error shrink-0 mt-0.5" />
+              <span>New Features become slow and costly</span>
             </li>
-
-            <li class="flex flex-row gap-2 items-center">
-              <.icon name="hero-check-circle" class="size-5 text-secondary" />
-              <span>User-driven shipment confirmations with automated warnings</span>
+            <li class="flex items-start gap-3">
+              <.icon name="hero-wrench-screwdriver" class="size-6 text-error shrink-0 mt-0.5" />
+              <span>Maintenance costs get expensive</span>
             </li>
-
-            <li class="flex flex-row gap-2 items-center">
-              <.icon name="hero-check-circle" class="size-5 text-secondary" />
-              <span>Complex permission system with role-based access</span>
+            <li class="flex items-start gap-3">
+              <.icon name="hero-bug-ant" class="size-6 text-error shrink-0 mt-0.5" />
+              <span>Missed bugs take down entire servers</span>
             </li>
-
-            <li class="flex flex-row gap-2 items-center">
-              <.icon name="hero-check-circle" class="size-5 text-secondary" />
-              <span>Real-time tracking and notifications</span>
-            </li>
-
-            <li class="flex flex-row gap-2 items-center">
-              <.icon name="hero-check-circle" class="size-5 text-secondary" />
-              <span>Subcontractor visibility limited to assigned divisions</span>
+            <li class="flex items-start gap-3">
+              <.icon name="hero-server-stack" class="size-6 text-error shrink-0 mt-0.5" />
+              <span>Scaling becomes an expensive burden</span>
             </li>
           </ul>
+
+          <h4 class="text-xl lg:text-2xl font-medium pt-2">
+            Even once the project is finished,
+            the final product can feel slow and buggy,
+            eroding <span class="text-error font-bold">brand reputation</span>
+            and <span class="text-error font-bold">user trust</span>.
+          </h4>
+
+          <p class="text-lg pt-4">
+            These issues can all be mitigated starting with a <span class="link font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">solid foundation</span>.
+          </p>
         </div>
+      </div>
+    </div>
+  </section>
 
-        <div class="sm:mx-12 my-8 card card-xl bg-base-100 bg-gradient-to-tl to-primary/10 via-secondary/7 to-base-100 shadow-xl">
-          <div class="card-body flex flex-col gap-16 sm:flex-row justify-between ">
-            <div class="flex-1 flex flex-col gap- flex items-center justify-center">
-              <.icon name="hero-users" class="size-16 text-primary" />
-              <h5 class="font-bold text-3xl text-primary bg-gradient-to-tr from-primary to-secondary bg-clip-text text-transparent">
-                Multi
-              </h5>
-              <p class="text-sm">Tenant</p>
-            </div>
-            <div class="flex-1 flex flex-col gap- flex items-center justify-center">
-              <.icon name="hero-shield-check" class="size-16 text-primary" />
-              <h5 class="font-bold text-3xl text-primary bg-gradient-to-tr from-primary to-secondary bg-clip-text text-transparent">
-                Advanced
-              </h5>
-              <p class="text-sm">Authorization</p>
-            </div>
+  <section
+    id="solutions-section"
+    class="bg-gradient-to-t from-base-100 via-secondary/20 to-base-200 to-90% py-16 min-h-screen"
+  >
+    <div class="container mx-auto">
+      <header class="text-center">
+        <h2 class="text-5xl mb-4">
+          Built for
+          <span class="font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent ">
+            Long Term Success
+          </span>
+        </h2>
+        <p class="text-2xl mb-8">
+          We deliver software with long-term
+          <span class="font-bold text-primary"> reliability </span>
+          and <span class="font-bold text-primary"> scalability </span>
+          in mind.
+        </p>
+      </header>
 
-            <div class="flex-1 flex flex-col gap- flex items-center justify-center">
-              <.icon name="hero-signal" class="size-16 text-primary" />
-              <h5 class="font-bold text-3xl text-primary bg-gradient-to-tr from-primary to-secondary bg-clip-text text-transparent">
-                Real-time
-              </h5>
-              <p class="text-sm">Updates</p>
-            </div>
+      <div class="max-w-4xl mx-auto mb-16">
+        <div class="card bg-base-100/50 shadow-xl shadow-primary/10 border border-base-300/50">
+          <div class="card-body">
+            <p class="text-xl lg:text-2xl">
+              Your product starts off with thoughtful technical execution giving you
+              <span class="font-bold text-secondary"> shorter and predictable deadlines.</span>
+              Furthermore, we write software in Elixir, a language known for its
+              <span class="font-bold text-secondary"> high reliability. </span>
+            </p>
           </div>
         </div>
 
-        <div class="card-actions justify-center">
-          <button class="btn btn-primary btn-xl w-full">Learn More</button>
-        </div>
+        <p class="text-2xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent text-center mt-8">
+          Working with us means:
+        </p>
       </div>
+
+      <div class="w-full flex flex-col lg:flex-row gap-8 my-16">
+        <.icon_card
+          icon_name="hero-check-circle"
+          title="Reliable deadlines"
+          subtitle="Predictable timelines you can count on"
+        />
+        <.icon_card
+          icon_name="hero-shield-check"
+          title="Robust Code"
+          subtitle="Built to handle edge cases and scale gracefully"
+        />
+        <.icon_card
+          icon_name="hero-arrow-trending-up"
+          title="Designed to Scale"
+          subtitle="Architecture that grows with your business"
+        />
+      </div>
+
+      <.icon_card_large
+        icon_name="hero-bolt"
+        title="Get the Benefits of"
+        title_highlight="Real-time Interaction"
+        subtitle="without unnecessary risk."
+      />
     </div>
+  </section>
+  <div class="bg-base-100">
+    <div class="mx-auto h-1 w-64 bg-gradient-to-tr from-primary to-secondary rounded-full"></div>
   </div>
-</section>
-
-<div class="bg-base-100">
-  <div class="mx-auto h-1 w-64 bg-gradient-to-tr from-primary to-secondary rounded-full"></div>
-</div>
-
-<section
-  id="blog-section"
-  class="min-h-screen bg-base-100 py-16 bg-radial from-primary/20 via-base-100 to-base-100 "
->
-  <div class="container mx-auto">
-    <div class="flex flex-row justify-between items-end mb-8">
-      <div class="text-center flex flex-col items-start text-right gap-4 text-2xl">
-        <h2 class="inline py-1 text-5xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
-          Blog Posts
+  <section id="case-studies" class="min-h-screen bg-base-100 py-16 lg:py-24">
+    <div class="container mx-auto px-4">
+      <div class="text-center flex flex-col gap-4 mb-12">
+        <h2 class="inline mx-auto text-4xl lg:text-5xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
+          Case Studies
         </h2>
-        <p>Posts about stuff</p>
+        <p class="text-xl lg:text-2xl text-base-content/80">
+          Real-world solutions that deliver measurable results.
+        </p>
       </div>
 
-      <.link navigate="/#blogs" class="btn btn-primary btn-xl btn-ghost">
-        View All <.icon name="hero-arrow-right" class="size-5" />
-      </.link>
-    </div>
-
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-      <.blog_link_card
-        title="Navigation link"
-        category="Architecture"
-        date={Date.new!(2026, 10, 23)}
-        subtitle="A card component has a figure, a body part, and inside body there are title and actions parts. A card component has a figure, a body part, and inside body there are title and actions parts. A card component has a figure, a body part, and inside body there are title and actions parts."
-      />
-      <.blog_link_card
-        title="Navigation link"
-        category="Architecture"
-        date={Date.new!(2026, 10, 23)}
-        subtitle="A card component has a figure, a body part, and inside body there are title and actions parts. A card component has a figure, a body part, and inside body there are title and actions parts. A card component has a figure, a body part, and inside body there are title and actions parts."
-      />
-      <.blog_link_card
-        title="Navigation link"
-        category="Architecture"
-        date={Date.new!(2026, 10, 23)}
-        subtitle="A card component has a figure, a body part, and inside body there are title and actions parts. A card component has a figure, a body part, and inside body there are title and actions parts. A card component has a figure, a body part, and inside body there are title and actions parts."
-      />
-      <.blog_link_card
-        title="Navigation link"
-        category="Architecture"
-        date={Date.utc_today()}
-        subtitle="A card component has a figure, a body part, and inside body there are title and actions parts. A card component has a figure, a body part, and inside body there are title and actions parts. A card component has a figure, a body part, and inside body there are title and actions parts."
-      />
-    </div>
-  </div>
-</section>
-
-<div class="bg-base-100">
-  <div class="mx-auto h-1 w-64 bg-gradient-to-tr from-primary to-secondary rounded-full"></div>
-</div>
-
-<section id="message-section" class="bg-base-100 py-16">
-  <div class="container mx-auto ">
-    <h3 class=" inline text-5xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
-      Contact Today
-    </h3>
-    <.form for={%{}} as={:contact} phx-submit="submit" class="space-y-4">
-      <div class="flex flex-col md:flex-row gap-4 w-full">
-        <div class="flex-1">
-          <label class="font-bold">Name</label>
-          <input
-            type="text"
-            name="contact[name]"
-            required
-            class="input input-bordered w-full"
+      <div class="card lg:card-side bg-base-200 shadow-xl shadow-primary/5">
+        <figure class="lg:w-2/5">
+          <img
+            src="/images/backgrounds/construction-background.jpg"
+            alt="Construction management dashboard showing project tracking"
+            class="w-full h-64 lg:h-full object-cover"
           />
+        </figure>
+
+        <div class="card-body lg:w-3/5 gap-6">
+          <div class="flex flex-wrap gap-3">
+            <div class="badge badge-primary badge-lg bg-gradient-to-r border-none from-primary to-secondary">
+              <.icon name="hero-sparkles" class="size-4" /> Featured Project
+            </div>
+            <div class="badge badge-lg badge-ghost">
+              Construction Management
+            </div>
+          </div>
+
+          <h2 class="text-primary font-bold text-3xl lg:text-4xl">
+            Revolutionizing Construction Management
+          </h2>
+
+          <p class="text-lg lg:text-xl text-base-content/80 leading-relaxed">
+            XProcura is a construction procurement tracking software to help general
+            contractors track shipments on a worksite. A sophisticated platform built
+            for enterprise-scale operations.
+          </p>
+
+          <div class="space-y-4">
+            <h5 class="text-secondary text-lg font-bold">Key Features:</h5>
+            <ul class="flex flex-col gap-3 text-base lg:text-lg">
+              <li class="flex gap-3 items-start">
+                <.icon name="hero-check-circle" class="size-5 text-secondary shrink-0 mt-0.5" />
+                <span>Multi-tenant multi-project application architecture</span>
+              </li>
+              <li class="flex gap-3 items-start">
+                <.icon name="hero-check-circle" class="size-5 text-secondary shrink-0 mt-0.5" />
+                <span>Complete enterprise and project admin system</span>
+              </li>
+              <li class="flex gap-3 items-start">
+                <.icon name="hero-check-circle" class="size-5 text-secondary shrink-0 mt-0.5" />
+                <span>User-driven shipment confirmations with automated warnings</span>
+              </li>
+              <li class="flex gap-3 items-start">
+                <.icon name="hero-check-circle" class="size-5 text-secondary shrink-0 mt-0.5" />
+                <span>Complex permission system with role-based access</span>
+              </li>
+              <li class="flex gap-3 items-start">
+                <.icon name="hero-check-circle" class="size-5 text-secondary shrink-0 mt-0.5" />
+                <span>Real-time tracking and notifications</span>
+              </li>
+              <li class="flex gap-3 items-start">
+                <.icon name="hero-check-circle" class="size-5 text-secondary shrink-0 mt-0.5" />
+                <span>Subcontractor visibility limited to assigned divisions</span>
+              </li>
+            </ul>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 my-8">
+            <div class="card bg-base-100 bg-gradient-to-br from-primary/5 to-secondary/5 shadow-md">
+              <div class="card-body items-center text-center gap-2">
+                <.icon name="hero-users" class="size-12 text-primary" />
+                <h5 class="font-bold text-2xl bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
+                  Multi
+                </h5>
+                <p class="text-sm font-medium text-base-content/70">Tenant</p>
+              </div>
+            </div>
+
+            <div class="card bg-base-100 bg-gradient-to-br from-primary/5 to-secondary/5 shadow-md">
+              <div class="card-body items-center text-center gap-2">
+                <.icon name="hero-shield-check" class="size-12 text-primary" />
+                <h5 class="font-bold text-2xl bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
+                  Advanced
+                </h5>
+                <p class="text-sm font-medium text-base-content/70">Authorization</p>
+              </div>
+            </div>
+
+            <div class="card bg-base-100 bg-gradient-to-br from-primary/5 to-secondary/5 shadow-md">
+              <div class="card-body items-center text-center gap-2">
+                <.icon name="hero-signal" class="size-12 text-primary" />
+                <h5 class="font-bold text-2xl bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
+                  Real-time
+                </h5>
+                <p class="text-sm font-medium text-base-content/70">Updates</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="card-actions pt-4">
+            <button class=" btn btn-primary btn-lg px-8 w-full">
+              Learn More
+            </button>
+          </div>
         </div>
-
-        <div class="flex-1">
-          <label class="font-bold">Email</label>
-          <label class="input validator w-full">
-            <.icon name="hero-envelope" class="size-5" />
-            <input type="email" placeholder="mail@site.com" required />
-          </label>
-        </div>
       </div>
+    </div>
+  </section>
 
-      <div>
-        <label class="block text-sm font-medium mb-1">Message</label>
-        <textarea
-          name="contact[message]"
-          rows="8"
-          required
-          class="textarea textarea-bordered w-full resize-none"
-        ></textarea>
-      </div>
-
-      <div class="">
-        <.button type="submit" class="btn btn-primary md:btn-xl">
-          Send Message
-        </.button>
-      </div>
-    </.form>
+  <div class="bg-base-100">
+    <div class="mx-auto h-1 w-64 bg-gradient-to-tr from-primary to-secondary rounded-full"></div>
   </div>
-</section>
-<!--
+
+  <section
+    id="blog-section"
+    class="min-h-screen bg-base-100 py-16 lg:py-24 bg-radial from-primary/20 via-base-100 to-base-100"
+  >
+    <div class="container mx-auto px-4">
+      <div class="flex flex-col sm:flex-row justify-between items-start sm:items-end gap-6 mb-12">
+        <div class="flex flex-col gap-3">
+          <h2 class="text-4xl lg:text-5xl pb-1 font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
+            Blog Posts
+          </h2>
+          <p class="text-xl lg:text-2xl text-base-content/70">
+            Insights and ideas from our team
+          </p>
+        </div>
+
+        <.link navigate="/#blogs" class="btn btn-primary btn-lg btn-ghost group">
+          View All
+          <.icon
+            name="hero-arrow-right"
+            class="size-5 transition-transform group-hover:translate-x-1"
+          />
+        </.link>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+        <.blog_link_card
+          title="Navigation link"
+          category="Architecture"
+          date={Date.new!(2026, 10, 23)}
+          subtitle="A card component has a figure, a body part, and inside body there are title and actions parts. A card component has a figure, a body part, and inside body there are title and actions parts."
+        />
+        <.blog_link_card
+          title="Navigation link"
+          category="Architecture"
+          date={Date.new!(2026, 10, 23)}
+          subtitle="A card component has a figure, a body part, and inside body there are title and actions parts. A card component has a figure, a body part, and inside body there are title and actions parts."
+        />
+        <.blog_link_card
+          title="Navigation link"
+          category="Architecture"
+          date={Date.new!(2026, 10, 23)}
+          subtitle="A card component has a figure, a body part, and inside body there are title and actions parts. A card component has a figure, a body part, and inside body there are title and actions parts."
+        />
+        <.blog_link_card
+          title="Navigation link"
+          category="Architecture"
+          date={Date.utc_today()}
+          subtitle="A card component has a figure, a body part, and inside body there are title and actions parts. A card component has a figure, a body part, and inside body there are title and actions parts."
+        />
+      </div>
+    </div>
+  </section>
+
+  <div class="bg-base-100">
+    <div class="mx-auto h-1 w-64 bg-gradient-to-tr from-primary to-secondary rounded-full"></div>
+  </div>
+
+  <section id="contact-section" class="bg-base-100 py-16 relative overflow-hidden">
+    <!-- Decorative background elements (subtle) -->
+    <div class="absolute inset-0 bg-radial from-primary/5 via-transparent to-transparent opacity-50">
+    </div>
+
+    <div class="container mx-auto px-4 relative z-10">
+      <div class="max-w-3xl mx-auto">
+        <!-- Header section -->
+        <div class="text-center mb-4 lg:mb-8">
+          <h2 class="text-4xl lg:text-5xl pb-1 font-bold inline-block bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent mb-4">
+            Let's Build Something Great Together
+          </h2>
+          <p class="text-xl lg:text-2xl text-base-content/70">
+            Have a project in mind? Send us a message and we'll respond within 24 hours.
+          </p>
+        </div>
+        
+<!-- Contact form -->
+        <div class="card bg-base-100 shadow-xl border border-base-200">
+          <div id="contact-us" class="card-body gap-6 p-6 lg:p-8">
+
+            <div class="card-title flex flex-col gap-4 sm:flex-row justify-between w-full">
+              <h4 class="card-title">Contact Form</h4>
+              <a href="mailto:BrianHammer4Work@gmail.com" class="btn btn-ghost btn-sm">
+                <.icon name="hero-envelope" class="size-5" />  <span class="text-break"> BrianHammer4work@gmail.com </span>
+              </a>
+            </div>
+
+            
+            <.form
+              for={%{}}
+              as={:contact}
+              phx-submit="submit"
+              class="space-y-6"
+            >
+              <div class="grid md:grid-cols-2 gap-4">
+                <div class="form-control">
+                  <label class="label">
+                    <span class="label-text font-medium">Full Name</span>
+                    <span class="label-text-alt text-error">*</span>
+                  </label>
+                  <input
+                    type="text"
+                    name="contact[name]"
+                    placeholder="John Doe"
+                    required
+                    class="input input-bordered w-full focus:input-primary transition-colors"
+                  />
+                </div>
+
+                <div class="form-control">
+                  <label class="label">
+                    <span class="label-text font-medium">Email Address</span>
+                    <span class="label-text-alt text-error">*</span>
+                  </label>
+                  <label class="input input-bordered flex items-center gap-2 focus-within:input-primary transition-colors">
+                    <.icon name="hero-envelope" class="size-4 text-base-content/50" />
+                    <input
+                      type="email"
+                      name="contact[email]"
+                      placeholder="you@company.com"
+                      required
+                      class="grow"
+                    />
+                  </label>
+                </div>
+              </div>
+
+              <div class="form-control">
+                <label class="label">
+                  <span class="label-text font-medium">Subject (Optional)</span>
+                </label>
+                <input
+                  type="text"
+                  name="contact[subject]"
+                  placeholder="What's this about?"
+                  class="input input-bordered w-full focus:input-primary transition-colors"
+                />
+              </div>
+
+              <div class="form-control">
+                <label class="label">
+                  <span class="label-text font-medium">Message</span>
+                  <span class="label-text-alt text-error">*</span>
+                </label>
+                <textarea
+                  name="contact[message]"
+                  rows="6"
+                  placeholder="Tell us about your project, idea, or question..."
+                  required
+                  class="textarea textarea-bordered w-full resize-none focus:textarea-primary transition-colors"
+                ></textarea>
+              </div>
+
+              <button
+                type="submit"
+                class="w-full btn btn-primary btn-lg px-8 gap-2 order-2 sm:order-1"
+              >
+                Send
+              </button>
+            </.form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!--
 <section
   hidden
   id="unknown-section"

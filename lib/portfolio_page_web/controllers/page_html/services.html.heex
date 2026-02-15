@@ -1,0 +1,60 @@
+<Layouts.app flash={@flash}>
+  <section
+    id="solutions-section"
+    class="bg-gradient-to-t from-base-100 via-secondary/20 to-base-100 to-90% py-16 min-h-screen"
+  >
+    <div class="container mx-auto">
+      <header class="text-left">
+        <h2 class="text-5xl mb-4">
+          Our
+          <span class="font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent ">
+            Services
+          </span>
+        </h2>
+      </header>
+
+      <div class="w-full flex flex-col lg:flex-row gap-8 my-16">
+        <.icon_card
+          icon_name="hero-circle-stack"
+          title="Product Development"
+          subtitle="Everything from design, development, hosting, and scaling"
+        />
+        <.icon_card
+          icon_name="hero-computer-desktop"
+          title="UI/UX Design"
+          subtitle="Wireframes and Figma designs using DaisyUI components to save development time"
+        />
+        <.icon_card
+          icon_name="hero-command-line"
+          title="Full Stack Development"
+          subtitle="Full Stack development with a focus on Phoenix LiveView"
+        />
+      </div>
+
+      <div class="pb-16">
+        <h3 class="text-4xl mb-4">
+          <span class="font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent ">
+            Tech Stack
+          </span>
+        </h3>
+
+        <div class="flex flex-row flex-wrap gap-4">
+          <div class="badge badge-primary badge-xl">Elixir</div>
+          <div class="badge badge-primary badge-xl">Phoenix</div>
+          <div class="badge badge-primary badge-xl">JavaScript</div>
+          <div class="badge badge-primary badge-xl">LiveView</div>
+          <div class="badge badge-primary badge-xl">Tailwind</div>
+          <div class="badge badge-primary badge-xl">Daisy UI</div>
+          <div class="badge badge-primary badge-xl">Ecto</div>
+        </div>
+      </div>
+
+      <.icon_card_large
+        icon_name="hero-chat-bubble-left-ellipsis"
+        title="Let's Talk About"
+        title_highlight="Your Project."
+        subtitle="Reach out today and see how we can help."
+      />
+    </div>
+  </section>
+</Layouts.app>

@@ -204,7 +204,7 @@ defmodule PortfolioPageWeb.LayoutComponents do
         <div class="card-body">
           <h3 class="card-title">Professional Development Services</h3>
           <p>
-            LiveLogic is a development studio dedicated to building cutting real-time applications.
+            LiveLogic is a development studio dedicated to building cutting-edge real-time applications.
           </p>
           <div class="w-full flex flex-row gap-2 mt-3">
             <a
