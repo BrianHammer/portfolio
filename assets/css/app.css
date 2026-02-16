@@ -155,33 +155,33 @@
 
 /* Typography Hierarchy  */
 .markdown-blog h1 {
-  @apply font-bold text-5xl mt-8 mb-1 bg-gradient-to-t from-primary to-secondary bg-clip-text text-transparent;
+  @apply font-bold text-5xl mt-16 mb-1 bg-gradient-to-t from-primary to-secondary bg-clip-text text-transparent;
 }
 
 .markdown-blog h2 {
-  @apply font-bold text-5xl text-primary mt-8 mb-2 bg-gradient-to-t from-primary to-secondary bg-clip-text text-transparent;
+  @apply font-bold text-5xl text-primary mt-16 mb-2 bg-gradient-to-t from-primary to-secondary bg-clip-text text-transparent;
 }
 
 .markdown-blog h3 {
-  @apply font-bold text-4xl text-primary mt-8 mb-2 bg-gradient-to-t from-primary to-secondary bg-clip-text text-transparent;
+  @apply font-bold text-4xl text-primary mt-16 mb-2 bg-gradient-to-t from-primary to-secondary bg-clip-text text-transparent;
 }
 
 .markdown-blog h4 {
-  @apply font-bold text-3xl text-primary mt-4 mb-1 bg-gradient-to-t from-primary to-secondary bg-clip-text text-transparent;
+  @apply font-bold text-3xl text-primary mt-8 mb-1 bg-gradient-to-t from-primary to-secondary bg-clip-text text-transparent;
 }
 
 .markdown-blog h5 {
-  @apply font-bold text-2xl text-secondary mt-4 mb-1;
+  @apply font-bold text-2xl text-secondary mt-8 mb-1;
 }
 
 .markdown-blog h6 {
-  @apply font-bold text-xl text-secondary mt-4 mb-1;
+  @apply font-bold text-xl text-secondary mt-8 mb-1;
 }
 
 
 /* Text Elements */
 .markdown-blog p {
-  @apply text-lg mb-2 mt-2 text-base-content;
+  @apply text-lg my-8 text-base-content leading-10;
 }
 
 .markdown-blog strong {

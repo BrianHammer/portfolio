@@ -84,7 +84,6 @@ defmodule PortfolioPageWeb.CustomComponents do
     ~H"""
     <.blog_link_card
       image_url={@post.image_url}
-      tags={@post.tags}
       url={"/blogs/#{@post.id}"}
       date={@post.date}
       title={@post.title}
@@ -108,11 +107,11 @@ defmodule PortfolioPageWeb.CustomComponents do
     ~H"""
     <.link navigate={@url}>
       <div class="group card bg-base-200 shadow-sm border-2 border-primary/20 hover:border-primary/70 transition-all duration-100">
-        <figure>
+        <figure class="h-40">
           <img
             src={@image_url}
             alt={"Article image for #{@title}"}
-            class="group-hover:scale-105 transition-all duration-200 group-hover:opacity-80"
+            class="group-hover:scale-105 w-full h-full object-cover transition-all duration-200 group-hover:opacity-80"
           />
         </figure>
         <div class="card-body group-hover:text-secondary duration-200">
@@ -134,7 +133,7 @@ defmodule PortfolioPageWeb.CustomComponents do
               <span>{@date |> Formatter.format_date()}</span>
             </li>
           </ul>
-          <h2 class="card-title">{@title}</h2>
+          <h2 class="card-title line-clamp-2">{@title}</h2>
           <p class="line-clamp-3">
             {@subtitle}
           </p>

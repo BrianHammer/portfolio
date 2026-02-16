@@ -1,4 +1,14 @@
-# PortfolioPage
+# LiveLogic Portfolio Page
+
+Made by Brian Hammer
+
+This is the **LiveLogic Portfolio Page** featuring premium gradient effects, colors driven by the DaisyUI color pallette, and a *blazingly fast* blogging system. 
+
+Everything including the blogs are completely open sourced. You are free to use the source code however you'd like.
+
+This portfolio is built using Phoenix LiveView, Tailwind, and DaisyUI. Blogging library used is NimblePublisher. 
+
+## Start up
 
 To start your Phoenix server:
 

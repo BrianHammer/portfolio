@@ -12,7 +12,7 @@ defmodule PortfolioPageWeb.BlogLive.Index do
         <div class="text-4xl mb-4">Blogs</div>
 
         <div class="flex flex-col md:flex-row gap-8">
-          <section :if={@live_action == :index} class="flex-2">
+          <section :if={@live_action == :index} class="flex-2 lg:flex-3">
             <ul
               id="blog-list-section"
               class="flex-2 grid grid-cols-1 gap-4 lg:grid-cols-2 lg:grid-cols-2"
@@ -23,7 +23,7 @@ defmodule PortfolioPageWeb.BlogLive.Index do
             </ul>
           </section>
 
-          <section :if={@live_action == :show} class="flex-2">
+          <section :if={@live_action == :show} class="flex-2 lg:flex-3">
             <.blog_section post={@post} />
           </section>
 

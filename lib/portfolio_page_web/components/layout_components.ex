@@ -52,16 +52,27 @@ defmodule PortfolioPageWeb.LayoutComponents do
                 {nav_info.label}
               </.link>
             </li>
+
+    <!-- no room for the button on mobile. Include here... -->
+            <li class="sm:hidden">
+              <.link navigate={@contact_link.url} class="btn btn-primary flex flex-row gap-2">
+                <.icon name="hero-envelope" class="size-5" /> {@contact_link.label}
+              </.link>
+            </li>
           </ul>
         </div>
 
-        <.link navigate="/" class="btn btn-ghost flex flex-row gap-2 items-center">
+        <.link navigate="/#" class="btn btn-ghost flex flex-row gap-2 items-center">
           <span>
             <img src="/images/logo.svg" class="h-8 w-8 " />
           </span>
           <span class="font-bold text-3xl  bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
             LiveLogic
           </span>
+          <span class="text-base-content h-full ">
+          <span class="pt-full">Dev</span>
+          </span>
+
         </.link>
       </div>
       <div class="navbar-center hidden lg:flex">
@@ -73,7 +84,7 @@ defmodule PortfolioPageWeb.LayoutComponents do
           </li>
         </ul>
       </div>
-      <div class="navbar-end">
+      <div class="navbar-end hidden sm:flex">
         <.link navigate={@contact_link.url} class="btn btn-primary flex flex-row gap-2">
           <.icon name="hero-envelope" class="size-5" /> {@contact_link.label}
         </.link>
@@ -110,7 +121,10 @@ defmodule PortfolioPageWeb.LayoutComponents do
       <nav>
         <h6 class="footer-title">Contact</h6>
         <.link navigate={@contact_link.url} class="link link-hover">Contact Form</.link>
-        <.link navigate={@contact_link.url} class="link link-hover">brianhammer4work@gmail.com</.link>
+        <.link href="mailto:BrianHammer4Work@gmail.com" class="link link-hover">brianhammer4work@gmail.com</.link>
+        <.link href="https://github.com/BrianHammer/portfolio" class="link link-hover">
+          Github
+        </.link>
       </nav>
     </footer>
     """
@@ -185,11 +199,14 @@ defmodule PortfolioPageWeb.LayoutComponents do
           <ul class="list">
             <li :for={post <- @recent_posts} class="">
               <span class="w-full px-2 block h-[2px] bg-base-300"></span>
-              <.link patch={"/blogs/#{post.id}"} class="block px-1 py-2 hover:bg-secondary/10 flex flex-row justify-between">
+              <.link
+                patch={"/blogs/#{post.id}"}
+                class="block px-1 py-2 hover:bg-secondary/10 flex flex-row justify-between"
+              >
                 <div class="flex flex-col gap-2">
                   {post.title}
                   <div class="text-xs text-base-content/50 line-clamp-3">
-                  {post.description}
+                    {post.description}
                   </div>
                 </div>
               </.link>
@@ -200,22 +217,22 @@ defmodule PortfolioPageWeb.LayoutComponents do
 
     <!-- advertisement card -->
 
-      <div class="bg-base-100 card shadow-lg bg-gradient-to-br from-primary/10 to-secondary/10 border-2 border-primary/20">
+      <div class="card bg-base-100 shadow-lg bg-gradient-to-br from-primary/10 to-secondary/10 border-2 border-primary/20">
         <div class="card-body">
           <h3 class="card-title">Professional Development Services</h3>
           <p>
             LiveLogic is a development studio dedicated to building cutting-edge real-time applications.
           </p>
           <div class="w-full flex flex-row gap-2 mt-3">
-            <a
-              href="/#request-demo"
+            <.link
+              navigate="/#contact-us"
               class="btn btn-primary flex-1 bg-gradient-to-br from-primary/10 to-secondary/10"
             >
-              Request Now
-            </a>
-            <a href="/" class="btn btn-outline btn-secondary flex-1">
+              Contact Us
+            </.link>
+            <.link navigate="/" class="btn btn-outline btn-secondary flex-1">
               Learn More
-            </a>
+            </.link>
           </div>
         </div>
       </div>

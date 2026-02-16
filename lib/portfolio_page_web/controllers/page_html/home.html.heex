@@ -17,15 +17,18 @@
     <div class="container mx-auto h-full min-h-[90vh] flex items-center justify-center relative z-10 px-4">
       <div class="card max-w-150 bg-base-100/0">
         <div class="card-body">
-          <h2 class="card-title text-5xl bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
+          <h2 class="card-title text-3xl sm:text-5xl bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
             From Vision <br /> to Reliable Real-time Software
           </h2>
-          <p class="py-6 text-lg text-neutral-content">
+          <p class="py-6  text-md sm:text-lg text-neutral-content">
             Turn ideas into production-ready real-time software that stays
             reliable under pressure and scales effortlessly as your business grows.
           </p>
-          <div class="card-actions justify-start">
-            <.link navigate="/#contact-us" class="btn btn-primary">Contact</.link>
+          <div class="card-actions justify-start ">
+            <.link navigate="/#contact-us" class="btn btn-primary btn-lg">Contact</.link>
+            <.link navigate="/#problem-section" class="btn btn-secondary btn-outline btn-lg">
+              Learn More
+            </.link>
           </div>
         </div>
       </div>
@@ -154,6 +157,8 @@
       </div>
 
       <.icon_card_large
+        secondary_button_text="View Services"
+        secondary_button_url="/services"
         icon_name="hero-bolt"
         title="Get the Benefits of"
         title_highlight="Real-time Interaction"
@@ -267,9 +272,9 @@
           </div>
 
           <div class="card-actions pt-4">
-            <button class=" btn btn-primary btn-lg px-8 w-full">
+            <.link navigate="/blogs" class=" btn btn-primary btn-lg px-8 w-full">
               Learn More
-            </button>
+            </.link>
           </div>
         </div>
       </div>
@@ -304,32 +309,11 @@
         </.link>
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-        <.blog_link_card
-          title="Navigation link"
-          category="Architecture"
-          date={Date.new!(2026, 10, 23)}
-          subtitle="A card component has a figure, a body part, and inside body there are title and actions parts. A card component has a figure, a body part, and inside body there are title and actions parts."
-        />
-        <.blog_link_card
-          title="Navigation link"
-          category="Architecture"
-          date={Date.new!(2026, 10, 23)}
-          subtitle="A card component has a figure, a body part, and inside body there are title and actions parts. A card component has a figure, a body part, and inside body there are title and actions parts."
-        />
-        <.blog_link_card
-          title="Navigation link"
-          category="Architecture"
-          date={Date.new!(2026, 10, 23)}
-          subtitle="A card component has a figure, a body part, and inside body there are title and actions parts. A card component has a figure, a body part, and inside body there are title and actions parts."
-        />
-        <.blog_link_card
-          title="Navigation link"
-          category="Architecture"
-          date={Date.utc_today()}
-          subtitle="A card component has a figure, a body part, and inside body there are title and actions parts. A card component has a figure, a body part, and inside body there are title and actions parts."
-        />
-      </div>
+      <ul class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+        <li :for={post <- PortfolioPage.Blog.get_recent_posts(4)}>
+          <.blog_post_link post={post} />
+        </li>
+      </ul>
     </div>
   </section>
 
@@ -337,7 +321,7 @@
     <div class="mx-auto h-1 w-64 bg-gradient-to-tr from-primary to-secondary rounded-full"></div>
   </div>
 
-  <section id="contact-section" class="bg-base-100 py-16 relative overflow-hidden">
+  <section id="contact-us" class="bg-base-100 py-16 relative overflow-hidden">
     <!-- Decorative background elements (subtle) -->
     <div class="absolute inset-0 bg-radial from-primary/5 via-transparent to-transparent opacity-50">
     </div>
@@ -356,16 +340,15 @@
         
 <!-- Contact form -->
         <div class="card bg-base-100 shadow-xl border border-base-200">
-          <div id="contact-us" class="card-body gap-6 p-6 lg:p-8">
-
+          <div id="contact-form" class="card-body gap-6 p-6 lg:p-8">
             <div class="card-title flex flex-col gap-4 sm:flex-row justify-between w-full">
               <h4 class="card-title">Contact Form</h4>
               <a href="mailto:BrianHammer4Work@gmail.com" class="btn btn-ghost btn-sm">
-                <.icon name="hero-envelope" class="size-5" />  <span class="text-break"> BrianHammer4work@gmail.com </span>
+                <.icon name="hero-envelope" class="size-5" />
+                <span class="text-break"> BrianHammer4work@gmail.com </span>
               </a>
             </div>
 
-            
             <.form
               for={%{}}
               as={:contact}
