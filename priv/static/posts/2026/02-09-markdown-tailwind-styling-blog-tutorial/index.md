@@ -1,7 +1,7 @@
 %{
   title: "How to style markdown using tailwind V4",
   author: "Brian Hammer",
-  tags: ~w(markdown frontend tailwind styling),
+  tags: ~w(markdown frontend tailwind tutorials),
   description: "Styling markdown generated content using tailwind classes, complete with an example.",
   image_url: "/posts/2026/02-09-markdown-tailwind-styling-blog-tutorial/blog-thumbnail.png",
   read_time: 15,
@@ -41,9 +41,9 @@ First get your Markdown generator working, and wrap it between the class element
 
 Make sure the 'markdown-blog' element is **exactly ONE element** between the markdown HTML. Do this by going into inspect element. Your content should look like this:
 
-![Correct inspect-element structure](./good-inspect-element.png)
+![Correct inspect-element structure](/posts/2026/02-09-markdown-tailwind-styling-blog-tutorial/good-inspect-element.png)
 
-When using the markdown file shown here: [Markdown Sample Used](https://onlinemarkdown.com/)
+Markdown file used above: [Markdown Sample Used](https://onlinemarkdown.com/)
 
 ### 2. Test Styles
 
@@ -208,7 +208,7 @@ Each  image will also be controlled by the size of your container, so you do not
 |and make them | look good. |
 | Copy the | code below. |
 
-```html
+```css
 
 /* Tables */
 .markdown-blog table {
@@ -239,7 +239,7 @@ This gives you a full width table with a bold header and zebra-styled table entr
 
 Finally it is time to style any code blocks. Paste the code below:
 
-```html
+```css
 /* Code */
 .markdown-blog code {
   @apply bg-base-200 px-1 rounded text-sm font-mono;

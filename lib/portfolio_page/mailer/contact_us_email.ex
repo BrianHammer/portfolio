@@ -15,6 +15,12 @@ defmodule ProtfolioPage.Mailer.ContactUsEmail do
     |> to(@to_email)
     |> from({name, @from_email})
     |> subject("#{name} [#{email}] - #{subject}")
-    |> text_body(message)
+    |> text_body("""
+    Name: #{name}
+    Email: #{email}
+
+    message:
+    #{message}
+    """)
   end
 end
