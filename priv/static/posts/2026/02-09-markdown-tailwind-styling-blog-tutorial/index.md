@@ -3,7 +3,7 @@
   author: "Brian Hammer",
   tags: ~w(markdown frontend tailwind styling),
   description: "Styling markdown generated content using tailwind classes, complete with an example.",
-  image_url: "./blog-thumbnail.png",
+  image_url: "/posts/2026/02-09-markdown-tailwind-styling-blog-tutorial/blog-thumbnail.png",
   read_time: 15,
   hidden?: false
 }

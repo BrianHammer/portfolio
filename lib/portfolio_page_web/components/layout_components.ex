@@ -24,7 +24,7 @@ defmodule PortfolioPageWeb.LayoutComponents do
 
   def navbar(assigns) do
     ~H"""
-    <navbar class="sticky top-0 z-50 navbar bg-base-100 shadow-lg shadow-lg shadow-primary/10">
+    <navbar class="sticky top-0 z-50 navbar bg-base-100/70 backdrop-blur-lg shadow-lg shadow-lg shadow-primary/10">
       <div class="navbar-start">
         <div class="dropdown">
           <div tabindex="0" role="button" class="btn btn-ghost lg:hidden">
