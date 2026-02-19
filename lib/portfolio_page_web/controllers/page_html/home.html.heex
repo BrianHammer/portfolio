@@ -350,9 +350,10 @@
             </div>
 
             <.form
-              for={%{}}
+              for={@contact_form}
+              action={~p"/contact"}
               as={:contact}
-              phx-submit="submit"
+              method="post"
               class="space-y-6"
             >
               <div class="grid md:grid-cols-2 gap-4">
@@ -364,6 +365,7 @@
                   <input
                     type="text"
                     name="contact[name]"
+                    value={@contact_form["name"]}
                     placeholder="John Doe"
                     required
                     class="input input-bordered w-full focus:input-primary transition-colors"
@@ -380,6 +382,7 @@
                     <input
                       type="email"
                       name="contact[email]"
+                      value={@contact_form["email"]}
                       placeholder="you@company.com"
                       required
                       class="grow"
@@ -395,6 +398,7 @@
                 <input
                   type="text"
                   name="contact[subject]"
+                  value={@contact_form["subject"]}
                   placeholder="What's this about?"
                   class="input input-bordered w-full focus:input-primary transition-colors"
                 />
@@ -407,6 +411,7 @@
                 </label>
                 <textarea
                   name="contact[message]"
+                  value={@contact_form["message"]}
                   rows="6"
                   placeholder="Tell us about your project, idea, or question..."
                   required

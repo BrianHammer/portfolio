@@ -63,9 +63,13 @@ defmodule PortfolioPage.MixProject do
       {:jason, "~> 1.2"},
       {:dns_cluster, "~> 0.2.0"},
       {:bandit, "~> 1.5"},
+
+      # Blogging dependencies
       {:nimble_publisher, "~> 1.1"},
       {:makeup_elixir, ">= 0.0.0"},
-      {:makeup_erlang, ">= 0.0.0"}
+      {:makeup_erlang, ">= 0.0.0"},
+      # Email sender deps
+      {:resend, "~> 0.4"}
     ]
   end
 

@@ -8,6 +8,8 @@ Everything including the blogs are completely open sourced. You are free to use 
 
 This portfolio is built using Phoenix LiveView, Tailwind, and DaisyUI. Blogging library used is NimblePublisher. 
 
+Email client uses "Resend" for the contact form
+
 ## Start up
 
 To start your Phoenix server:
