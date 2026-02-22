@@ -78,13 +78,18 @@ defmodule PortfolioPageWeb.CustomComponents do
     """
   end
 
+
+  defp build_link(link, "upwork"), do: "/upwork#{link}"
+  defp build_link(link, _any), do: link
+
   attr :post, :map, required: true
+  attr :type, :string, default: "default", values: ["default", "upwork"]
 
   def blog_post_link(assigns) do
     ~H"""
     <.blog_link_card
       image_url={@post.image_url}
-      url={"/blogs/#{@post.id}"}
+      url={"/blogs/#{@post.id}" |> build_link(@type) }
       date={@post.date}
       title={@post.title}
       subtitle={@post.description}

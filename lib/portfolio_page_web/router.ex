@@ -19,14 +19,17 @@ defmodule PortfolioPageWeb.Router do
 
     get "/", PageController, :home
 
-    post "/contact", PageController, :submit_contact_us
-
     get "/services", PageController, :services
     live "/blogs", BlogLive.Index, :index
     live "/blogs/:post_id", BlogLive.Index, :show
 
+    post "/contact", PageController, :submit_contact_us
+
     get "/upwork", PageController, :upwork
-    # live "/upwork/blogs",
+
+    # TOdo: Push me into a single BlogController eventually
+    live "/upwork/blogs", BlogLive.UpworkIndex, :index
+    live "/upwork/blogs/:post_id", BlogLive.UpworkIndex, :show
   end
 
   # Other scopes may use custom stacks.

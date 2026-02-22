@@ -1,0 +1,443 @@
+<Layouts.app type="upwork" flash={@flash}>
+  <section
+    id="home"
+    class="relative min-h-[90vh] w-full"
+  >
+    <!-- Background layer -->
+    <div class="absolute inset-0">
+      <img
+        src={~p"/images/backgrounds/gold-effects-3.jpg"}
+        class="h-full w-full object-cover object-center-left"
+      />
+      <div class="absolute inset-0 bg-gradient-to-b from-base-100/100 via-base-100/0 to-base-100/100">
+      </div>
+    </div>
+    
+<!-- Content goes here -->
+    <div class="container mx-auto h-full min-h-[90vh] flex items-center justify-center relative z-10 px-4">
+      <div class="card  max-w-150 bg-base-100/0">
+        <div class="card-body">
+          <h2 class="card-title font-semibold text-4xl bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
+            From Idea to Reliable Real-Time Software
+          </h2>
+          <p class="mt-4 mb-2  text-md sm:text-lg text-base-content">
+            I build software built on the BEAM, a technology for scalable, fault-tolerant
+            real-time systems.
+          </p>
+          <div class="my-1 flex flex-col md:flex-row gap-2">
+            <div class="badge">Brian Hammer</div>
+            <div class="badge">Full Stack Developer</div>
+            <div class="badge">Elixir / Phoenix LiveView Specialist</div>
+          </div>
+
+          <div class="card-actions justify-start ">
+            <.link navigate="/upwork/#contact" class="btn btn-primary btn-lg">Contact</.link>
+            <.link navigate="/upwork/#about" class="btn btn-secondary btn-outline btn-lg">
+              Learn More
+            </.link>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section
+    id="about"
+    class="bg-base-100 py-16 lg:py-16"
+  >
+    <div class="container mx-auto px-4">
+      <h2 class="text-3xl font-semibold text-center mb-8">
+        <span class="font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
+          Midigate Risks
+        </span>
+        of Real-Time Development
+      </h2>
+
+      <div class="grid grid-cols-12 gap-4">
+        <div class="col-span-12 md:col-span-7  card bg-base-200 card-lg shadow-sm ">
+          <div class="card-body">
+            <h2 class="card-title font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
+              Built on Rock-Solid Foundations
+            </h2>
+            <p class="text-base-content/50">
+              It's common for undetected errors to cause entire servers to crash.
+              BEAM was built to power telecom systems where downtime isn't an option,
+              so failures stay isolated instead of bringing everything down.
+            </p>
+          </div>
+        </div>
+
+        <div class="col-span-12 md:col-span-5 card bg-base-200 card-lg shadow-sm">
+          <div class="card-body">
+            <h2 class="card-title">Scaling From the Start</h2>
+            <p class="text-base-content/50">
+              Real-time apps with 1,000 users can break at 10,000 and require immediate re-writes.
+              BEAM was built for handling millions of concurrent users and is used by Discord and WhatsApp.
+            </p>
+          </div>
+        </div>
+
+        <div class="col-span-12 md:col-span-5 card bg-base-200 card-lg shadow-sm">
+          <div class="card-body">
+            <h2 class="card-title">Predictable Systems Save Money</h2>
+            <p class="text-base-content/50">
+              I use functional programming for its readability and predictability.
+              Less hidden complexity means less technical debt and maintenance costs.
+            </p>
+          </div>
+        </div>
+
+        <div class=" col-span-12 md:col-span-7 card bg-base-200 card-lg shadow-sm">
+          <div class="card-body">
+            <h2 class="card-title">Real-Time First, Not an Afterthought</h2>
+            <p class="text-base-content/50">
+              Real-time features become fragile when added as an afterthought.
+              We use tools built specifically for persistent connections and live updates,
+              resulting in smoother user experiences and fewer edge-case failures.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="bg-base-100">
+    <div class="mx-auto h-1 w-64 bg-gradient-to-tr from-primary to-secondary rounded-full"></div>
+  </div>
+
+  <section id="services" class="bg-base-100 py-16 lg:py-16">
+    <div class="container mx-auto px-4">
+      <h2 class="text-3xl font-semibold text-center mb-8">
+        My Services from
+        <span class="font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
+          Design to Development
+        </span>
+      </h2>
+
+      <div class="w-full flex flex-col lg:flex-row gap-4 mb-8">
+        <.icon_card
+          icon_name="hero-circle-stack"
+          title="Product Development"
+          subtitle="Everything from design, development, hosting, and scaling"
+        />
+
+        <.icon_card
+          icon_name="hero-command-line"
+          title="Full Stack Development"
+          subtitle="Full Stack development with a focus on Phoenix LiveView"
+        />
+        <.icon_card
+          icon_name="hero-computer-desktop"
+          title="UX/UI Design"
+          subtitle="Wireframes and Figma designs using DaisyUI components to save development time"
+        />
+      </div>
+      
+<!--
+      <.icon_card_large
+        icon_name="hero-chat-bubble-left-ellipsis"
+        title="Let's Talk About"
+        title_highlight="Your Project."
+        subtitle="Reach out today and see how we can help."
+      />-->
+
+      <div class="">
+        <h3 class="text-xl mb-4">
+          <span class="font-bold">
+            Tech Stack
+          </span>
+        </h3>
+
+        <div class="flex flex-row flex-wrap gap-2">
+          <div class="badge badge-primary  badge-xl">Elixir</div>
+          <div class="badge badge-primary  badge-xl">Phoenix</div>
+
+          <div class="badge badge-primary  badge-xl">LiveView</div>
+          <div class="badge badge-primary badge-soft badge-xl">JavaScript</div>
+          <div class="badge badge-primary badge-soft badge-xl">Tailwind</div>
+          <div class="badge badge-primary badge-soft badge-xl">Daisy UI</div>
+          <div class="badge badge-primary badge-soft badge-xl">Postgres</div>
+          <div class="badge badge-primary badge-soft badge-xl">Ecto</div>
+          <div class="badge badge-primary bg-base-100 border-base-100 badge-soft badge-xl">
+            And More...
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="bg-base-100">
+    <div class="mx-auto h-1 w-64 bg-gradient-to-tr from-primary to-secondary rounded-full"></div>
+  </div>
+  
+<!-- 
+  <section
+    id="solutions-section"
+    class="bg-gradient-to-t from-base-100 via-secondary/20 to-base-200 to-90% py-16 min-h-screen"
+  >
+    <div class="container mx-auto">
+      <header class="text-center">
+        <h2 class="text-5xl mb-4">
+          Built for
+          <span class="font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent ">
+            Long Term Success
+          </span>
+        </h2>
+        <p class="text-2xl mb-8">
+          We deliver software with long-term
+          <span class="font-bold text-primary"> reliability </span>
+          and <span class="font-bold text-primary"> scalability </span>
+          in mind.
+        </p>
+      </header>
+
+      <div class="max-w-4xl mx-auto mb-16">
+        <div class="card bg-base-100/50 shadow-xl shadow-primary/10 border border-base-300/50">
+          <div class="card-body">
+            <p class="text-xl lg:text-2xl">
+              Your product starts off with thoughtful technical execution giving you
+              <span class="font-bold text-secondary"> shorter and predictable deadlines.</span>
+              Furthermore, we write software in Elixir, a language known for its
+              <span class="font-bold text-secondary"> high reliability. </span>
+            </p>
+          </div>
+        </div>
+
+        <p class="text-2xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent text-center mt-8">
+          Working with us means:
+        </p>
+      </div>
+
+      <div class="w-full flex flex-col lg:flex-row gap-8 my-16">
+        <.icon_card
+          icon_name="hero-check-circle"
+          title="Reliable deadlines"
+          subtitle="Predictable timelines you can count on"
+        />
+        <.icon_card
+          icon_name="hero-shield-check"
+          title="Robust Code"
+          subtitle="Built to handle edge cases and scale gracefully"
+        />
+        <.icon_card
+          icon_name="hero-arrow-trending-up"
+          title="Designed to Scale"
+          subtitle="Architecture that grows with your business"
+        />
+      </div>
+
+      <.icon_card_large
+        secondary_button_text="View Services"
+        secondary_button_url="/services"
+        icon_name="hero-bolt"
+        title="Get the Benefits of"
+        title_highlight="Real-time Interaction"
+        subtitle="without unnecessary risk."
+      />
+    </div>
+  </section>
+  <div class="bg-base-100">
+    <div class="mx-auto h-1 w-64 bg-gradient-to-tr from-primary to-secondary rounded-full"></div>
+  </div>-->
+
+  <section id="case-studies" class="min-h-screen bg-base-100 py-16">
+    <div class="container mx-auto px-4">
+      <div class="text-center flex flex-col gap-4 mb-12">
+        <h2 class="inline mx-auto text-3xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
+          Case Studies
+        </h2>
+      </div>
+
+      <div class="card lg:card-side bg-base-200 shadow-xl shadow-primary/5">
+        <figure class="lg:w-2/5">
+          <img
+            src="/images/backgrounds/construction-background.jpg"
+            alt="Construction management dashboard showing project tracking"
+            class="w-full h-64 lg:h-full object-cover"
+          />
+        </figure>
+
+        <div class="card-body lg:w-3/5">
+          <div class="flex flex-wrap gap-2">
+            <div class="badge badge-primary badge-lg badge-secondary">
+              <.icon name="hero-sparkles" class="size-4" /> Featured Project
+            </div>
+          </div>
+
+          <h2 class="text-primary font-bold text-2xl mb-2">
+            XProcura - Revolutionizing Construction Management
+          </h2>
+
+          <p class="text-lg text-base-content/80 leading-relaxed mb-4">
+            XProcura is a construction procurement tracking software to help general
+            contractors track shipments on a worksite. A sophisticated platform built
+            for enterprise-scale operations.
+          </p>
+
+          <h5 class="text-secondary text-lg font-bold">Key Features:</h5>
+          <ul class="flex flex-col gap-2 text-base lg:text-lg">
+            <li class="flex gap-3 items-start">
+              <.icon name="hero-check-circle" class="size-5 text-secondary shrink-0 mt-0.5" />
+              <span>Multi-tenant multi-project application architecture</span>
+            </li>
+            <li class="flex gap-3 items-start">
+              <.icon name="hero-check-circle" class="size-5 text-secondary shrink-0 mt-0.5" />
+              <span>Complete enterprise and project admin system</span>
+            </li>
+            <li class="flex gap-3 items-start">
+              <.icon name="hero-check-circle" class="size-5 text-secondary shrink-0 mt-0.5" />
+              <span>User-driven shipment confirmations with automated warnings</span>
+            </li>
+            <li class="flex gap-3 items-start">
+              <.icon name="hero-check-circle" class="size-5 text-secondary shrink-0 mt-0.5" />
+              <span>Complex permission system with role-based access</span>
+            </li>
+            <li class="flex gap-3 items-start">
+              <.icon name="hero-check-circle" class="size-5 text-secondary shrink-0 mt-0.5" />
+              <span>Real-time tracking and notifications</span>
+            </li>
+            <li class="flex gap-3 items-start">
+              <.icon name="hero-check-circle" class="size-5 text-secondary shrink-0 mt-0.5" />
+              <span>Subcontractor visibility limited to assigned divisions</span>
+            </li>
+          </ul>
+
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 my-4">
+            <div class="card bg-base-100 bg-gradient-to-br from-primary/5 to-secondary/5 shadow-md">
+              <div class="card-body items-center text-center gap-2">
+                <.icon name="hero-users" class="size-12 text-primary" />
+                <h5 class="font-bold text-2xl bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
+                  Multi
+                </h5>
+                <p class="text-sm font-medium text-base-content/70">Tenant</p>
+              </div>
+            </div>
+
+            <div class="card bg-base-100 bg-gradient-to-br from-primary/5 to-secondary/5 shadow-md">
+              <div class="card-body items-center text-center gap-2">
+                <.icon name="hero-shield-check" class="size-12 text-primary" />
+                <h5 class="font-bold text-2xl bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
+                  Advanced
+                </h5>
+                <p class="text-sm font-medium text-base-content/70">Authorization</p>
+              </div>
+            </div>
+
+            <div class="card bg-base-100 bg-gradient-to-br from-primary/5 to-secondary/5 shadow-md">
+              <div class="card-body items-center text-center gap-2">
+                <.icon name="hero-signal" class="size-12 text-primary" />
+                <h5 class="font-bold text-2xl bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
+                  Real-time
+                </h5>
+                <p class="text-sm font-medium text-base-content/70">Updates</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="card-actions">
+            <.link
+              navigate="/blogs/xprocura-case-study"
+              class=" btn btn-primary btn-lg px-8 w-full"
+            >
+              Learn More
+            </.link>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="bg-base-100">
+    <div class="mx-auto h-1 w-64 bg-gradient-to-tr from-primary to-secondary rounded-full"></div>
+  </div>
+
+  <section
+    id="blog-section"
+    class="min-h-screen bg-base-100 py-16 bg-radial from-primary/20 via-base-100 to-base-100"
+  >
+    <div class="container mx-auto px-4">
+      <div class="flex flex-col sm:flex-row justify-between items-start sm:items-end gap-6 mb-12">
+        <div class="flex flex-col gap-3">
+          <h2 class="text-3xl pb-1 font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
+            Blog Posts
+          </h2>
+          <p class="text-lg text-base-content">
+            Programming Tutorials, Case Studies, and insights
+          </p>
+        </div>
+
+        <.link navigate="/blogs" class="btn btn-primary btn-lg btn-soft group">
+          View All
+          <.icon
+            name="hero-arrow-right"
+            class="size-5 transition-transform group-hover:translate-x-1"
+          />
+        </.link>
+      </div>
+
+      <ul class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+        <li :for={post <- PortfolioPage.Blog.get_recent_posts(4)}>
+          <.blog_post_link post={post} />
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <div class="bg-base-100">
+    <div class="mx-auto h-1 w-64 bg-gradient-to-tr from-primary to-secondary rounded-full"></div>
+  </div>
+
+  <section id="contact" class="bg-base-100 py-16 relative overflow-hidden">
+    <!-- Decorative background elements (subtle) -->
+    <div class="absolute inset-0 bg-radial from-primary/5 via-transparent to-transparent opacity-50">
+    </div>
+
+    <div class="container mx-auto px-4 relative z-10">
+      <div class="max-w-3xl mx-auto">
+        <!-- Header section -->
+        <div class="text-center mb-4 lg:mb-8">
+          <h2 class="text-3xl pb-1 font-bold inline-block bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent mb-4">
+            Let's Talk about Your Project
+          </h2>
+
+          <p class="text-lg text-base-content/70">Avaliable for work Via Upwork.</p>
+
+          <div class="flex items-center justify-center flex-row gap-4">
+            <.link
+              href="https://www.upwork.com/freelancers/~0102aeefe76405d866"
+              class="btn btn-primary btn-xl mt-6"
+            >
+              Contact
+            </.link>
+            <.link
+              href="https://www.upwork.com/freelancers/~0102aeefe76405d866"
+              class="btn btn-secondary btn-outline btn-xl mt-6"
+            >
+              View Profile
+            </.link>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!--
+<section
+  hidden
+  id="unknown-section"
+  class="relative h-screen w-full"
+>-->
+  <!-- Background layer --><!--
+  <div class="absolute inset-0">
+    <img
+      src={~p"/images/backgrounds/golden-network-background-2.jpg"}
+      class="h-full w-full object-cover object-top-right"
+    />
+    <div class="absolute inset-0 bg-gradient-to-b from-base-100 via-base-100/0 to-base-100/100">
+    </div>
+  </div>
+  -->
+<!-- Content goes here --><!--
+  <div class="container mx-auto flex flex-col items-center gap-8 "></div>
+</section>
+-->
+</Layouts.app>

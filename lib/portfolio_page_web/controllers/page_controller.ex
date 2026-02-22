@@ -9,6 +9,14 @@ defmodule PortfolioPageWeb.PageController do
   end
 
 
+  # Essentially the home page without contact information
+  def upwork(conn, _params) do
+    conn
+    |> assign(:page_title, "Brian Hammer - Upwork")
+    |> render(:upwork)
+  end
+
+
 
   # POST "/contact"
   # Used only as a post method, and will redirect back to home page with a flash

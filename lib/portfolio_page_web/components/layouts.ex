@@ -33,19 +33,27 @@ defmodule PortfolioPageWeb.Layouts do
 
   slot :inner_block, required: true
 
+  attr :type, :string, default: "default", values: ["default", "upwork"], doc: "the type of layout to render"
+
   def app(assigns) do
     ~H"""
-    <.navbar />
+    <.navbar type={@type} />
 
     <main class="min-h-screen">
       {render_slot(@inner_block)}
     </main>
 
-    <.footer />
+    <.footer type={@type} />
 
     <.flash_group flash={@flash} />
     """
   end
+
+
+
+
+
+
 
   @doc """
   Shows the flash group with standard titles and content.
