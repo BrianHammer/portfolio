@@ -22,10 +22,10 @@ defmodule PortfolioPageWeb.CustomComponents do
 
   def icon_card(assigns) do
     ~H"""
-    <div class="card w-full shadow-2xl shadow-primary/10 bg-gradient-to-br from-primary/10 via-base-100 to-base-100">
+    <div class="card w-full shadow-primary/10 bg-gradient-to-br from-primary/20 via-base-200 to-base-200">
       <div class="card-body card-xl">
         <div class="card-title flex flex-col md:flex-row gap-4 items-center">
-          <div class="flex-none size-16 from-primary to-secondary bg-gradient-to-br flex items-center justify-center rounded-md shadow-secondary/50 shadow-lg">
+          <div class="flex-none size-16 from-primary to-secondary bg-gradient-to-br flex items-center justify-center rounded-md shadow-secondary/20 shadow-lg">
             <.icon name={@icon_name} class="size-8 text-black bg-black font-bold" />
           </div>
           <h5 class="text-xl text-primary font-bold mb-1">{@title}</h5>
