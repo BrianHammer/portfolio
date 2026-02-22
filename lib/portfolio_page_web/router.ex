@@ -24,6 +24,9 @@ defmodule PortfolioPageWeb.Router do
     get "/services", PageController, :services
     live "/blogs", BlogLive.Index, :index
     live "/blogs/:post_id", BlogLive.Index, :show
+
+    get "/upwork", PageController, :upwork
+    # live "/upwork/blogs",
   end
 
   # Other scopes may use custom stacks.
