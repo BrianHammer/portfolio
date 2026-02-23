@@ -336,7 +336,7 @@
 
           <div class="card-actions">
             <.link
-              navigate="/blogs/xprocura-case-study"
+              navigate="/upwork/blogs/xprocura-case-study"
               class=" btn btn-primary btn-lg px-8 w-full"
             >
               Learn More
@@ -366,7 +366,7 @@
           </p>
         </div>
 
-        <.link navigate="/blogs" class="btn btn-primary btn-lg btn-soft group">
+        <.link navigate="/upwork/blogs" class="btn btn-primary btn-lg btn-soft group">
           View All
           <.icon
             name="hero-arrow-right"
@@ -377,7 +377,7 @@
 
       <ul class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
         <li :for={post <- PortfolioPage.Blog.get_recent_posts(4)}>
-          <.blog_post_link post={post} />
+          <.blog_post_link type="upwork" post={post} />
         </li>
       </ul>
     </div>
